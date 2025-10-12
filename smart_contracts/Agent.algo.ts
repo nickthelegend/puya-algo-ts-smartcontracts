@@ -24,7 +24,7 @@ export class SingleAgentContract extends Contract {
   details = GlobalState<string>();
   fixedPricing = GlobalState<uint64>();
   createdAt = GlobalState<uint64>();
-  ownerAddress = GlobalState<Address>();
+  ownerAddress = GlobalState<Account>();
 
   // Task bookkeeping in boxes (index -> Task struct)
   taskCount = GlobalState<uint64>();
@@ -40,7 +40,7 @@ export class SingleAgentContract extends Contract {
   @abimethod()
   createApplication(agentName: string, agentDetails: string, pricing: uint64, managerAppId: uint64 = 0 as uint64): void {
     // store the creator as the owner
-    this.ownerAddress.value = (Txn.sender as unknown) as Address;
+    this.ownerAddress.value = Txn.sender;
     this.name.value = agentName;
     this.details.value = agentDetails;
     this.fixedPricing.value = pricing;
@@ -55,7 +55,7 @@ export class SingleAgentContract extends Contract {
   private logEvent(eventType: string, agentIndex: uint64, amount: uint64 = 0 as uint64): void {
     // if MANAGER_APP_ID is 0 we call the current application ID (use txn.applicationId)
     const manager =
-      this.MANAGER_APP_ID.value == (0 as uint64) ? (Txn.applicationId as unknown as uint64) : this.MANAGER_APP_ID.value;
+      this.MANAGER_APP_ID.value === (0 as uint64) ? (Txn.applicationId as unknown as uint64) : this.MANAGER_APP_ID.value;
 
     // appArgs must be bytes; convert numbers to 8-byte big-endian with itob if available.
     // Use Bytes for string args.
@@ -64,17 +64,11 @@ export class SingleAgentContract extends Contract {
     // Here we attempt to use it directly:
     let amountBytes: bytes;
     let idxBytes: bytes;
-    try {
-      // @ts-ignore - itob exists on the runtime op API
-      idxBytes = (this as any).itob ? (this as any).itob(agentIndex) : Bytes(String(agentIndex));
-      // @ts-ignore
-      amountBytes = (this as any).itob ? (this as any).itob(amount) : Bytes(String(amount));
-    } catch {
+    
       // safe fallback: encode as decimal string bytes
       idxBytes = Bytes(String(agentIndex));
       amountBytes = Bytes(String(amount));
-    }
-
+    
     // Build and submit an inner application call to the manager app for logging
     itxn
       .applicationCall({
@@ -114,7 +108,7 @@ this.taskBox(idx).value = encoded;
   @abimethod()
   recordTask(success: boolean, detailsStr: string, amount: uint64): void {
     // ensure only owner can record
-    assert(((Txn.sender as unknown) as Address) == this.ownerAddress.value, "only owner");
+    assert(Txn.sender  == this.ownerAddress.value, "only owner");
 
     const tId = Global.latestTimestamp;
     const t = {
@@ -137,7 +131,7 @@ this.taskBox(idx).value = encoded;
   // ----------------------
   @abimethod()
   payOther(target: Address, amount: uint64): void {
-    assert(((Txn.sender as unknown) as Address) == this.ownerAddress.value, "only owner");
+    assert(Txn.sender === this.ownerAddress.value, "only owner");
 
     // inner payment
     itxn
@@ -177,8 +171,8 @@ this.taskBox(idx).value = encoded;
   // transferOwnership(newOwner)
   // ----------------------
   @abimethod()
-  transferOwnership(newOwner: Address): void {
-    assert(((Txn.sender as unknown) as Address) == this.ownerAddress.value, "only owner");
+  transferOwnership(newOwner: Account): void {
+    assert(Txn.sender  === this.ownerAddress.value, "only owner");
     this.ownerAddress.value = newOwner;
   }
 
@@ -202,7 +196,7 @@ this.taskBox(idx).value = encoded;
     return this.createdAt.value;
   }
   @abimethod()
-  getOwner(): Address {
+  getOwner(): Account {
     return this.ownerAddress.value;
   }
   @abimethod()
