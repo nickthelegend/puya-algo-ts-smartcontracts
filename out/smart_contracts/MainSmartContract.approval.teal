@@ -4,13 +4,11 @@
 // @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
 main:
     intcblock 1 0
-    bytecblock 0xb8447b36
     // smart_contracts/MainSmartContract.algo.ts:28
     // export class MainSmartContract extends Contract {
     txn NumAppArgs
     bz main_after_if_else@8
-    bytec_0 // method "createApplication()void"
-    pushbytes 0xf040dd0d // method "register(pay)void"
+    pushbytess 0xb8447b36 0xb4bf6e34 // method "createApplication()void", method "register(pay,account)void"
     txna ApplicationArgs 0
     match main_createApplication_route@3 main_register_route@4
 
@@ -22,7 +20,7 @@ main_after_if_else@8:
 
 main_register_route@4:
     // smart_contracts/MainSmartContract.algo.ts:51
-    // register(payTxn : gtxn.PaymentTxn){
+    // register(payTxn : gtxn.PaymentTxn, userAddress : Account){
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
@@ -38,8 +36,11 @@ main_register_route@4:
     intc_0 // pay
     ==
     assert // transaction type is pay
+    txna ApplicationArgs 1
+    btoi
+    txnas Accounts
     // smart_contracts/MainSmartContract.algo.ts:51
-    // register(payTxn : gtxn.PaymentTxn){
+    // register(payTxn : gtxn.PaymentTxn, userAddress : Account){
     callsub register
     intc_0 // 1
     return
@@ -77,68 +78,66 @@ createApplication:
     retsub
 
 
-// smart_contracts/MainSmartContract.algo.ts::MainSmartContract.register(payTxn: uint64) -> void:
+// smart_contracts/MainSmartContract.algo.ts::MainSmartContract.register(payTxn: uint64, userAddress: bytes) -> void:
 register:
     // smart_contracts/MainSmartContract.algo.ts:51
-    // register(payTxn : gtxn.PaymentTxn){
-    proto 1 0
+    // register(payTxn : gtxn.PaymentTxn, userAddress : Account){
+    proto 2 0
     // smart_contracts/MainSmartContract.algo.ts:53
     // assert(payTxn.receiver === Global.currentApplicationAddress, 'Payment must be to the contract')
-    frame_dig -1
+    frame_dig -2
     gtxns Receiver
     global CurrentApplicationAddress
     ==
     assert // Payment must be to the contract
     // smart_contracts/MainSmartContract.algo.ts:54
     // assert(payTxn.amount === Uint64(5000), 'Incorrect payment amount')
-    frame_dig -1
+    frame_dig -2
     gtxns Amount
     pushint 5000 // 5000
     ==
     assert // Incorrect payment amount
-    // smart_contracts/MainSmartContract.algo.ts:62-72
+    // smart_contracts/MainSmartContract.algo.ts:61-71
     // const helloApp = itxn
     //   .applicationCall({
     //     appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
     //     approvalProgram: compiled.approvalProgram,
     //     clearStateProgram: compiled.clearStateProgram,
     //     globalNumBytes: compiled.globalBytes,
-    //           accounts: [ Txn.sender ],
+    //           accounts: [ userAddress ],
     //            globalNumUint: 2, // <-- Allow 1 uint in global state,
     // 
     //   })
     //   .submit().createdApp
     itxn_begin
     // smart_contracts/MainSmartContract.algo.ts:68
-    // accounts: [ Txn.sender ],
-    txn Sender
-    // smart_contracts/MainSmartContract.algo.ts:69
     // globalNumUint: 2, // <-- Allow 1 uint in global state,
     pushint 2 // 2
     itxn_field GlobalNumUint
+    frame_dig -1
     itxn_field Accounts
-    // smart_contracts/MainSmartContract.algo.ts:59
+    // smart_contracts/MainSmartContract.algo.ts:58
     // const compiled = compile(UserAccountContract)
     intc_0 // 1
     itxn_field GlobalNumByteSlice
     pushbytes base64(CoEBQw==)
     itxn_field ClearStateProgramPages
-    pushbytes base64(CjEbQQAVggIEuER7NgSD1TxpNhoAjgIAHAADgQBDMRkURDEYRDYaATYaAjYaAxfAHIgALYEBQzEZFEQxGBREiAADgQFDgAxvd25lckFkZHJlc3MxAGeABWxpbWl0gQpniYoDAIv9FYEFCBZXBgKAAwAFgExQi/1Qi/5Qi/+8SIv/TL+J)
+    pushbytes base64(CjEbQQAVggIE2lP+/gSD1TxpNhoAjgIAHAADgQBDMRkURDEYRDYaATYaAjYaAxfAHIgANoEBQzEZFEQxGBRENhoBF8AciAADgQFDigEAgAxvd25lckFkZHJlc3OL/2eABWxpbWl0gQpniYoDADEAgCBZDEaNkIJTaUKniVW/Ef802bZNG6j2Zuu4YpPmEDHfUxJEi/0VgQUIFlcGAoADAAWATFCL/VCL/lCL/7xIi/9Mv4k=)
     itxn_field ApprovalProgramPages
-    // smart_contracts/MainSmartContract.algo.ts:64
+    // smart_contracts/MainSmartContract.algo.ts:63
     // appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
-    bytec_0 // method "createApplication()void"
+    pushbytes 0xda53fefe // method "createApplication(account)void"
     itxn_field ApplicationArgs
     pushbytes 0x0000000000000001
     itxn_field ApplicationArgs
-    // smart_contracts/MainSmartContract.algo.ts:62-71
+    // smart_contracts/MainSmartContract.algo.ts:61-70
     // const helloApp = itxn
     //   .applicationCall({
     //     appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
     //     approvalProgram: compiled.approvalProgram,
     //     clearStateProgram: compiled.clearStateProgram,
     //     globalNumBytes: compiled.globalBytes,
-    //           accounts: [ Txn.sender ],
+    //           accounts: [ userAddress ],
     //            globalNumUint: 2, // <-- Allow 1 uint in global state,
     // 
     //   })
@@ -146,26 +145,26 @@ register:
     itxn_field TypeEnum
     intc_1 // 0
     itxn_field Fee
-    // smart_contracts/MainSmartContract.algo.ts:62-72
+    // smart_contracts/MainSmartContract.algo.ts:61-71
     // const helloApp = itxn
     //   .applicationCall({
     //     appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
     //     approvalProgram: compiled.approvalProgram,
     //     clearStateProgram: compiled.clearStateProgram,
     //     globalNumBytes: compiled.globalBytes,
-    //           accounts: [ Txn.sender ],
+    //           accounts: [ userAddress ],
     //            globalNumUint: 2, // <-- Allow 1 uint in global state,
     // 
     //   })
     //   .submit().createdApp
     itxn_submit
-    // smart_contracts/MainSmartContract.algo.ts:74
+    // smart_contracts/MainSmartContract.algo.ts:73
     // this.users(Txn.sender).value =helloApp
     txn Sender
-    // smart_contracts/MainSmartContract.algo.ts:72
+    // smart_contracts/MainSmartContract.algo.ts:71
     // .submit().createdApp
     itxn CreatedApplicationID
-    // smart_contracts/MainSmartContract.algo.ts:74
+    // smart_contracts/MainSmartContract.algo.ts:73
     // this.users(Txn.sender).value =helloApp
     itob
     box_put

@@ -48,12 +48,11 @@ export class MainSmartContract extends Contract {
   }
 
   
-  register(payTxn : gtxn.PaymentTxn){
+  register(payTxn : gtxn.PaymentTxn, userAddress : Account){
 
     assert(payTxn.receiver === Global.currentApplicationAddress, 'Payment must be to the contract')
     assert(payTxn.amount === Uint64(5000), 'Incorrect payment amount')
     // Additional registration logic here
-
 
 
 const compiled = compile(UserAccountContract)
@@ -65,7 +64,7 @@ const helloApp = itxn
     approvalProgram: compiled.approvalProgram,
     clearStateProgram: compiled.clearStateProgram,
     globalNumBytes: compiled.globalBytes,
-          accounts: [ Txn.sender ],
+          accounts: [ userAddress ],  
            globalNumUint: 2, // <-- Allow 1 uint in global state,
 
   })

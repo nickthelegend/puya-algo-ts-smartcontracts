@@ -21,7 +21,7 @@ import { arc4 } from '@algorandfoundation/algorand-typescript';
 import { Address, Str } from "@algorandfoundation/algorand-typescript/arc4";
 import { PaymentTxn } from "@algorandfoundation/algorand-typescript/gtnx";
 class VerifierStruct extends arc4.Struct<{ name: arc4.Str, isVerified: arc4.Bool, proofHash: arc4.Str }> {}
-// const allowedAddress = Account('LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4');
+const allowedAddress = Account('LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4');
 
 export class UserAccountContract extends Contract {
   // Agent metadata (global)
@@ -39,9 +39,9 @@ public verifiers = BoxMap<Account, VerifierStruct>({ keyPrefix: '' });
   // createApplication (initialize single agent)
   // ----------------------
   @abimethod()
-  createApplication(): void {
+  createApplication(ownerAddress : Account): void {
     // store the creator as the owner
-    this.ownerAddress.value = Txn.sender;
+    this.ownerAddress.value = ownerAddress;
     this.limit.value = 10;
     
   }
@@ -50,7 +50,7 @@ public verifiers = BoxMap<Account, VerifierStruct>({ keyPrefix: '' });
   
     @abimethod()
  verify(providerName : Str, proofHash: Str, account: Account){
-// assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
+assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
 
 this.verifiers(account).value = new VerifierStruct({
   name: providerName,
