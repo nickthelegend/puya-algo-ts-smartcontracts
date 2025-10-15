@@ -1,0 +1,554 @@
+{
+  "version": 3,
+  "sources": [
+    "/workspaces/puya-algo-ts-smartcontracts/smart_contracts/UserAccount.algo.ts"
+  ],
+  "mappings": ";AAyBA;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;;;AAyBK;;AAAA;AAAA;AAAA;;AAAA;AAzBL;;;AAAA;;;AAAA;;;AAAA;AAAA;;AAyBK;;;AAAA;;;AAVF;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAfH;;;AAAA;AAAA;;AAeG;;;AAAA;;;AAAD;;;AAZA;;;;;;;;;;;;;;AAegC;;AAA9B;AAdF;;;;;;;AAeqB;;AAAnB;;AAMA;;;AAEO;;AA7BoB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6BxB;AAAP;AAEgC;;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;;;;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAhC;;AAAA;;AAAA;;AAAA;AAAA;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "3": {
+      "op": "bz main_after_if_else@8",
+      "stack_out": []
+    },
+    "6": {
+      "op": "pushbytess 0xda53fefe 0x83d53c69 // method \"createApplication(account)void\", method \"verify(string,string,account)void\"",
+      "defined_out": [
+        "Method(createApplication(account)void)",
+        "Method(verify(string,string,account)void)"
+      ],
+      "stack_out": [
+        "Method(createApplication(account)void)",
+        "Method(verify(string,string,account)void)"
+      ]
+    },
+    "18": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(createApplication(account)void)",
+        "Method(verify(string,string,account)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(createApplication(account)void)",
+        "Method(verify(string,string,account)void)",
+        "tmp%2#0"
+      ]
+    },
+    "21": {
+      "op": "match main_createApplication_route@3 main_verify_route@4",
+      "stack_out": []
+    },
+    "27": {
+      "block": "main_after_if_else@8",
+      "stack_in": [],
+      "op": "pushint 0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "29": {
+      "op": "return",
+      "stack_out": []
+    },
+    "30": {
+      "block": "main_verify_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "32": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "33": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "34": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "36": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "37": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "40": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%13#0",
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%13#0",
+        "tmp%14#0"
+      ]
+    },
+    "43": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "reinterpret_bytes[1]%1#0",
+        "tmp%13#0",
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%13#0",
+        "tmp%14#0",
+        "reinterpret_bytes[1]%1#0"
+      ]
+    },
+    "46": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%13#0",
+        "tmp%14#0",
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%13#0",
+        "tmp%14#0",
+        "tmp%15#0"
+      ]
+    },
+    "47": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%13#0",
+        "tmp%14#0",
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%13#0",
+        "tmp%14#0",
+        "tmp%16#0"
+      ]
+    },
+    "49": {
+      "callsub": "smart_contracts/UserAccount.algo.ts::UserAccountContract.verify",
+      "op": "callsub verify",
+      "stack_out": []
+    },
+    "52": {
+      "op": "pushint 1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "54": {
+      "op": "return",
+      "stack_out": []
+    },
+    "55": {
+      "block": "main_createApplication_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "57": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "58": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "59": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "61": {
+      "op": "!",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "62": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "63": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "66": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "67": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "69": {
+      "callsub": "smart_contracts/UserAccount.algo.ts::UserAccountContract.createApplication",
+      "op": "callsub createApplication",
+      "stack_out": []
+    },
+    "72": {
+      "op": "pushint 1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "74": {
+      "op": "return",
+      "stack_out": []
+    },
+    "75": {
+      "subroutine": "smart_contracts/UserAccount.algo.ts::UserAccountContract.createApplication",
+      "params": {
+        "ownerAddress#0": "bytes"
+      },
+      "block": "createApplication",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "78": {
+      "op": "pushbytes \"ownerAddress\"",
+      "defined_out": [
+        "\"ownerAddress\""
+      ],
+      "stack_out": [
+        "\"ownerAddress\""
+      ]
+    },
+    "92": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"ownerAddress\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"ownerAddress\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "94": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "95": {
+      "op": "pushbytes \"limit\"",
+      "defined_out": [
+        "\"limit\""
+      ],
+      "stack_out": [
+        "\"limit\""
+      ]
+    },
+    "102": {
+      "op": "pushint 10 // 10",
+      "defined_out": [
+        "\"limit\"",
+        "10"
+      ],
+      "stack_out": [
+        "\"limit\"",
+        "10"
+      ]
+    },
+    "104": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "105": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "106": {
+      "subroutine": "smart_contracts/UserAccount.algo.ts::UserAccountContract.verify",
+      "params": {
+        "providerName#0": "bytes",
+        "proofHash#0": "bytes",
+        "account#0": "bytes"
+      },
+      "block": "verify",
+      "stack_in": [],
+      "op": "proto 3 0"
+    },
+    "109": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "111": {
+      "op": "pushbytes base32(LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35JQ) // addr LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4",
+      "defined_out": [
+        "Address(LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "Address(LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4)"
+      ]
+    },
+    "145": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "146": {
+      "error": "Only the allowed address can access this method",
+      "op": "assert // Only the allowed address can access this method",
+      "stack_out": []
+    },
+    "147": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "providerName#0 (copy)"
+      ],
+      "stack_out": [
+        "providerName#0 (copy)"
+      ]
+    },
+    "149": {
+      "op": "len",
+      "defined_out": [
+        "data_length%0#0"
+      ],
+      "stack_out": [
+        "data_length%0#0"
+      ]
+    },
+    "150": {
+      "op": "pushint 5 // 5",
+      "defined_out": [
+        "5",
+        "data_length%0#0"
+      ],
+      "stack_out": [
+        "data_length%0#0",
+        "5"
+      ]
+    },
+    "152": {
+      "op": "+",
+      "defined_out": [
+        "current_tail_offset%1#0"
+      ],
+      "stack_out": [
+        "current_tail_offset%1#0"
+      ]
+    },
+    "153": {
+      "op": "itob",
+      "defined_out": [
+        "as_bytes%1#0"
+      ],
+      "stack_out": [
+        "as_bytes%1#0"
+      ]
+    },
+    "154": {
+      "op": "extract 6 2",
+      "defined_out": [
+        "offset_as_uint16%1#0"
+      ],
+      "stack_out": [
+        "offset_as_uint16%1#0"
+      ]
+    },
+    "157": {
+      "op": "pushbytes 0x000580",
+      "defined_out": [
+        "0x000580",
+        "offset_as_uint16%1#0"
+      ],
+      "stack_out": [
+        "offset_as_uint16%1#0",
+        "0x000580"
+      ]
+    },
+    "162": {
+      "op": "swap",
+      "stack_out": [
+        "0x000580",
+        "offset_as_uint16%1#0"
+      ]
+    },
+    "163": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%3#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%3#0"
+      ]
+    },
+    "164": {
+      "op": "frame_dig -3",
+      "stack_out": [
+        "encoded_tuple_buffer%3#0",
+        "providerName#0 (copy)"
+      ]
+    },
+    "166": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%4#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%4#0"
+      ]
+    },
+    "167": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "encoded_tuple_buffer%4#0",
+        "proofHash#0 (copy)"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%4#0",
+        "proofHash#0 (copy)"
+      ]
+    },
+    "169": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%5#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%5#0"
+      ]
+    },
+    "170": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "account#0 (copy)",
+        "encoded_tuple_buffer%5#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%5#0",
+        "account#0 (copy)"
+      ]
+    },
+    "172": {
+      "op": "box_del",
+      "defined_out": [
+        "encoded_tuple_buffer%5#0",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%5#0",
+        "{box_del}"
+      ]
+    },
+    "173": {
+      "op": "pop",
+      "stack_out": [
+        "encoded_tuple_buffer%5#0"
+      ]
+    },
+    "174": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "encoded_tuple_buffer%5#0",
+        "account#0 (copy)"
+      ]
+    },
+    "176": {
+      "op": "swap",
+      "stack_out": [
+        "account#0 (copy)",
+        "encoded_tuple_buffer%5#0"
+      ]
+    },
+    "177": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "178": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}

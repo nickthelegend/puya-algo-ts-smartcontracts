@@ -1,0 +1,126 @@
+#pragma version 10
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    // smart_contracts/UserAccount.algo.ts:26
+    // export class UserAccountContract extends Contract {
+    txn NumAppArgs
+    bz main_after_if_else@8
+    pushbytess 0xda53fefe 0x83d53c69 // method "createApplication(account)void", method "verify(string,string,account)void"
+    txna ApplicationArgs 0
+    match main_createApplication_route@3 main_verify_route@4
+
+main_after_if_else@8:
+    // smart_contracts/UserAccount.algo.ts:26
+    // export class UserAccountContract extends Contract {
+    pushint 0 // 0
+    return
+
+main_verify_route@4:
+    // smart_contracts/UserAccount.algo.ts:51
+    // @abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/UserAccount.algo.ts:26
+    // export class UserAccountContract extends Contract {
+    txna ApplicationArgs 1
+    txna ApplicationArgs 2
+    txna ApplicationArgs 3
+    btoi
+    txnas Accounts
+    // smart_contracts/UserAccount.algo.ts:51
+    // @abimethod()
+    callsub verify
+    pushint 1 // 1
+    return
+
+main_createApplication_route@3:
+    // smart_contracts/UserAccount.algo.ts:41
+    // @abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    // smart_contracts/UserAccount.algo.ts:26
+    // export class UserAccountContract extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    txnas Accounts
+    // smart_contracts/UserAccount.algo.ts:41
+    // @abimethod()
+    callsub createApplication
+    pushint 1 // 1
+    return
+
+
+// smart_contracts/UserAccount.algo.ts::UserAccountContract.createApplication(ownerAddress: bytes) -> void:
+createApplication:
+    // smart_contracts/UserAccount.algo.ts:41-42
+    // @abimethod()
+    // createApplication(ownerAddress: Account): void {
+    proto 1 0
+    // smart_contracts/UserAccount.algo.ts:29
+    // ownerAddress = GlobalState<Account>();
+    pushbytes "ownerAddress"
+    // smart_contracts/UserAccount.algo.ts:44
+    // this.ownerAddress.value = Txn.sender;
+    txn Sender
+    app_global_put
+    // smart_contracts/UserAccount.algo.ts:30
+    // limit = GlobalState<uint64>();
+    pushbytes "limit"
+    // smart_contracts/UserAccount.algo.ts:45
+    // this.limit.value = 10;
+    pushint 10 // 10
+    app_global_put
+    retsub
+
+
+// smart_contracts/UserAccount.algo.ts::UserAccountContract.verify(providerName: bytes, proofHash: bytes, account: bytes) -> void:
+verify:
+    // smart_contracts/UserAccount.algo.ts:51-52
+    //    @abimethod()
+    // verify(providerName : Str, proofHash: Str, account: Account){
+    proto 3 0
+    // smart_contracts/UserAccount.algo.ts:53
+    // assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
+    txn Sender
+    // smart_contracts/UserAccount.algo.ts:24
+    // const allowedAddress = Account('LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4');
+    pushbytes base32(LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35JQ) // addr LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4
+    // smart_contracts/UserAccount.algo.ts:53
+    // assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
+    ==
+    assert // Only the allowed address can access this method
+    // smart_contracts/UserAccount.algo.ts:55-59
+    // this.verifiers(account).value = new VerifierStruct({
+    //   name: providerName,
+    //   isVerified: new arc4.Bool(true),
+    //   proofHash: proofHash
+    // });
+    frame_dig -3
+    len
+    pushint 5 // 5
+    +
+    itob
+    extract 6 2
+    pushbytes 0x000580
+    swap
+    concat
+    frame_dig -3
+    concat
+    frame_dig -2
+    concat
+    frame_dig -1
+    box_del
+    pop
+    frame_dig -1
+    swap
+    box_put
+    retsub
