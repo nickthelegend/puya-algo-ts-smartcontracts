@@ -1,0 +1,101 @@
+#pragma version 10
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    // smart_contracts/Agent.algo.ts:21
+    // export class SingleAgentContract extends Contract {
+    txn NumAppArgs
+    bz main_after_if_else@7
+    pushbytes 0x08936709 // method "createApplication(string,string,uint64,uint64)void"
+    txna ApplicationArgs 0
+    match main_createApplication_route@3
+
+main_after_if_else@7:
+    // smart_contracts/Agent.algo.ts:21
+    // export class SingleAgentContract extends Contract {
+    pushint 0 // 0
+    return
+
+main_createApplication_route@3:
+    // smart_contracts/Agent.algo.ts:40
+    // @abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    // smart_contracts/Agent.algo.ts:21
+    // export class SingleAgentContract extends Contract {
+    txna ApplicationArgs 1
+    extract 2 0
+    txna ApplicationArgs 2
+    extract 2 0
+    txna ApplicationArgs 3
+    btoi
+    txna ApplicationArgs 4
+    btoi
+    // smart_contracts/Agent.algo.ts:40
+    // @abimethod()
+    callsub createApplication
+    pushint 1 // 1
+    return
+
+
+// smart_contracts/Agent.algo.ts::SingleAgentContract.createApplication(agentName: bytes, agentDetails: bytes, pricing: uint64, managerAppId: uint64) -> void:
+createApplication:
+    // smart_contracts/Agent.algo.ts:40-41
+    // @abimethod()
+    // createApplication(agentName: string, agentDetails: string, pricing: uint64, managerAppId: uint64 = 0 as uint64): void {
+    proto 4 0
+    // smart_contracts/Agent.algo.ts:27
+    // ownerAddress = GlobalState<Account>();
+    pushbytes "ownerAddress"
+    // smart_contracts/Agent.algo.ts:43
+    // this.ownerAddress.value = Txn.sender;
+    txn Sender
+    app_global_put
+    // smart_contracts/Agent.algo.ts:23
+    // name = GlobalState<string>();
+    pushbytes "name"
+    // smart_contracts/Agent.algo.ts:44
+    // this.name.value = agentName;
+    frame_dig -4
+    app_global_put
+    // smart_contracts/Agent.algo.ts:24
+    // details = GlobalState<string>();
+    pushbytes "details"
+    // smart_contracts/Agent.algo.ts:45
+    // this.details.value = agentDetails;
+    frame_dig -3
+    app_global_put
+    // smart_contracts/Agent.algo.ts:25
+    // fixedPricing = GlobalState<uint64>();
+    pushbytes "fixedPricing"
+    // smart_contracts/Agent.algo.ts:46
+    // this.fixedPricing.value = pricing;
+    frame_dig -2
+    app_global_put
+    // smart_contracts/Agent.algo.ts:26
+    // createdAt = GlobalState<uint64>();
+    pushbytes "createdAt"
+    // smart_contracts/Agent.algo.ts:47
+    // this.createdAt.value = Global.latestTimestamp;
+    global LatestTimestamp
+    app_global_put
+    // smart_contracts/Agent.algo.ts:30
+    // taskCount = GlobalState<uint64>();
+    pushbytes "taskCount"
+    // smart_contracts/Agent.algo.ts:48
+    // this.taskCount.value = 0 as uint64;
+    pushint 0 // 0
+    app_global_put
+    // smart_contracts/Agent.algo.ts:35
+    // MANAGER_APP_ID = GlobalState<uint64>();
+    pushbytes "MANAGER_APP_ID"
+    // smart_contracts/Agent.algo.ts:49
+    // this.MANAGER_APP_ID.value = managerAppId;
+    frame_dig -1
+    app_global_put
+    retsub
