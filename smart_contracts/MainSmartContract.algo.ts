@@ -14,7 +14,7 @@ import {
   bytes,
   Account,
   gtxn,
-  Application
+  Application,
 } from "@algorandfoundation/algorand-typescript";
 import { arc4 } from '@algorandfoundation/algorand-typescript';
 import { compile } from '@algorandfoundation/algorand-typescript'
@@ -61,11 +61,12 @@ const compiled = compile(UserAccountContract)
 
 const helloApp = itxn
   .applicationCall({
-    appArgs: [methodSelector(UserAccountContract.prototype.createApplication), Txn.sender],
+    appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
     approvalProgram: compiled.approvalProgram,
     clearStateProgram: compiled.clearStateProgram,
     globalNumBytes: compiled.globalBytes,
           accounts: [ Txn.sender ],
+           globalNumUint: 2, // <-- Allow 1 uint in global state,
 
   })
   .submit().createdApp

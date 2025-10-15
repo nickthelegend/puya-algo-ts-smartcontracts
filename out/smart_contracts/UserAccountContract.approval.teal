@@ -7,7 +7,7 @@ main:
     // export class UserAccountContract extends Contract {
     txn NumAppArgs
     bz main_after_if_else@8
-    pushbytess 0xda53fefe 0x83d53c69 // method "createApplication(account)void", method "verify(string,string,account)void"
+    pushbytess 0xb8447b36 0x83d53c69 // method "createApplication()void", method "verify(string,string,account)void"
     txna ApplicationArgs 0
     match main_createApplication_route@3 main_verify_route@4
 
@@ -47,24 +47,13 @@ main_createApplication_route@3:
     txn ApplicationID
     !
     assert // can only call when creating
-    // smart_contracts/UserAccount.algo.ts:26
-    // export class UserAccountContract extends Contract {
-    txna ApplicationArgs 1
-    btoi
-    txnas Accounts
-    // smart_contracts/UserAccount.algo.ts:41
-    // @abimethod()
     callsub createApplication
     pushint 1 // 1
     return
 
 
-// smart_contracts/UserAccount.algo.ts::UserAccountContract.createApplication(ownerAddress: bytes) -> void:
+// smart_contracts/UserAccount.algo.ts::UserAccountContract.createApplication() -> void:
 createApplication:
-    // smart_contracts/UserAccount.algo.ts:41-42
-    // @abimethod()
-    // createApplication(ownerAddress: Account): void {
-    proto 1 0
     // smart_contracts/UserAccount.algo.ts:29
     // ownerAddress = GlobalState<Account>();
     pushbytes "ownerAddress"
@@ -88,16 +77,6 @@ verify:
     //    @abimethod()
     // verify(providerName : Str, proofHash: Str, account: Account){
     proto 3 0
-    // smart_contracts/UserAccount.algo.ts:53
-    // assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
-    txn Sender
-    // smart_contracts/UserAccount.algo.ts:24
-    // const allowedAddress = Account('LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4');
-    pushbytes base32(LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35JQ) // addr LEGENDMQQJJWSQVHRFK36EP7GTM3MTI3VD3GN25YMKJ6MEBR35J4SBNVD4
-    // smart_contracts/UserAccount.algo.ts:53
-    // assert(Txn.sender === allowedAddress, 'Only the allowed address can access this method');
-    ==
-    assert // Only the allowed address can access this method
     // smart_contracts/UserAccount.algo.ts:55-59
     // this.verifiers(account).value = new VerifierStruct({
     //   name: providerName,
