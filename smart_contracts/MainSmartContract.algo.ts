@@ -47,7 +47,6 @@ export class MainSmartContract extends Contract {
     
   }
 
-  
   register(payTxn : gtxn.PaymentTxn, userAddress : Account){
 
     assert(payTxn.receiver === Global.currentApplicationAddress, 'Payment must be to the contract')
@@ -72,20 +71,7 @@ const helloApp = itxn
 
     this.users(Txn.sender).value =helloApp
 
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
 
   
 }

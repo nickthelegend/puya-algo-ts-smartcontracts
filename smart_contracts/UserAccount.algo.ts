@@ -62,19 +62,5 @@ this.verifiers(account).value = new VerifierStruct({
  }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 }
