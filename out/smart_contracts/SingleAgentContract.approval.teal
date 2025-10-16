@@ -192,7 +192,7 @@ createApplication:
     // taskCount = GlobalState<uint64>();
     bytec_1 // "taskCount"
     // smart_contracts/Agent.algo.ts:57
-    // this.taskCount.value = 0 as uint64;
+    // this.taskCount.value = 0;
     intc_0 // 0
     app_global_put
     retsub

@@ -54,7 +54,7 @@ export class SingleAgentContract extends Contract {
     this.details.value = agentDetails;
     this.fixedPricing.value = pricing;
     this.createdAt.value = Global.latestTimestamp;
-    this.taskCount.value = 0 as uint64;
+    this.taskCount.value = 0;
   }
 
   // ----------------------
