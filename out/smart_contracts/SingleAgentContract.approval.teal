@@ -4,24 +4,24 @@
 // @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
 main:
     intcblock 0 1
-    bytecblock "taskCount" "ownerAddress" "fixedPricing" 0x00 0x0033
+    bytecblock "ownerAddress" "taskCount" "fixedPricing" 0x00 0x0033
     // smart_contracts/Agent.algo.ts:32
     // export class SingleAgentContract extends Contract {
     txn NumAppArgs
-    bz main_after_if_else@10
-    pushbytess 0xc04b75f4 0x6b680318 0xc5463eea 0x13ff1ce9 // method "createApplication(string,string,uint64)void", method "pay(pay)void", method "updateTask(uint64,bool,bool,bool,bool,string,address)void", method "withdraw(address,uint64)void"
+    bz main_after_if_else@11
+    pushbytess 0xc04b75f4 0x6b680318 0xc5463eea 0xee33912f 0xf3baa270 // method "createApplication(string,string,uint64)void", method "pay(pay)void", method "updateTask(uint64,bool,bool,bool,bool,string,address)void", method "withdraw(account,uint64)void", method "transferOwnership(account)void"
     txna ApplicationArgs 0
-    match main_createApplication_route@3 main_pay_route@4 main_updateTask_route@5 main_withdraw_route@6
+    match main_createApplication_route@3 main_pay_route@4 main_updateTask_route@5 main_withdraw_route@6 main_transferOwnership_route@7
 
-main_after_if_else@10:
+main_after_if_else@11:
     // smart_contracts/Agent.algo.ts:32
     // export class SingleAgentContract extends Contract {
     intc_0 // 0
     return
 
-main_withdraw_route@6:
-    // smart_contracts/Agent.algo.ts:114
-    // withdraw(to: Address, amount: uint64): void {
+main_transferOwnership_route@7:
+    // smart_contracts/Agent.algo.ts:137
+    // transferOwnership(newOwner: Account): void {
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
@@ -30,10 +30,31 @@ main_withdraw_route@6:
     // smart_contracts/Agent.algo.ts:32
     // export class SingleAgentContract extends Contract {
     txna ApplicationArgs 1
+    btoi
+    txnas Accounts
+    // smart_contracts/Agent.algo.ts:137
+    // transferOwnership(newOwner: Account): void {
+    callsub transferOwnership
+    intc_1 // 1
+    return
+
+main_withdraw_route@6:
+    // smart_contracts/Agent.algo.ts:114
+    // withdraw(to: Account, amount: uint64): void {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/Agent.algo.ts:32
+    // export class SingleAgentContract extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    txnas Accounts
     txna ApplicationArgs 2
     btoi
     // smart_contracts/Agent.algo.ts:114
-    // withdraw(to: Address, amount: uint64): void {
+    // withdraw(to: Account, amount: uint64): void {
     callsub withdraw
     intc_1 // 1
     return
@@ -134,7 +155,7 @@ createApplication:
     proto 3 0
     // smart_contracts/Agent.algo.ts:39
     // ownerAddress = GlobalState<Account>();
-    bytec_1 // "ownerAddress"
+    bytec_0 // "ownerAddress"
     // smart_contracts/Agent.algo.ts:52
     // this.ownerAddress.value = Txn.sender ;
     txn Sender
@@ -169,7 +190,7 @@ createApplication:
     app_global_put
     // smart_contracts/Agent.algo.ts:41
     // taskCount = GlobalState<uint64>();
-    bytec_0 // "taskCount"
+    bytec_1 // "taskCount"
     // smart_contracts/Agent.algo.ts:57
     // this.taskCount.value = 0 as uint64;
     intc_0 // 0
@@ -208,7 +229,7 @@ pay:
     // smart_contracts/Agent.algo.ts:41
     // taskCount = GlobalState<uint64>();
     intc_0 // 0
-    bytec_0 // "taskCount"
+    bytec_1 // "taskCount"
     app_global_get_ex
     assert // check GlobalState exists
     // smart_contracts/Agent.algo.ts:75
@@ -274,7 +295,7 @@ pay:
     +
     // smart_contracts/Agent.algo.ts:41
     // taskCount = GlobalState<uint64>();
-    bytec_0 // "taskCount"
+    bytec_1 // "taskCount"
     // smart_contracts/Agent.algo.ts:85
     // this.taskCount.value = (idx + (1 as uint64)) as uint64;
     swap
@@ -402,7 +423,7 @@ updateTask_ternary_false@2:
 // smart_contracts/Agent.algo.ts::SingleAgentContract.withdraw(to: bytes, amount: uint64) -> void:
 withdraw:
     // smart_contracts/Agent.algo.ts:114
-    // withdraw(to: Address, amount: uint64): void {
+    // withdraw(to: Account, amount: uint64): void {
     proto 2 0
     // smart_contracts/Agent.algo.ts:115
     // assert(Txn.sender === this.ownerAddress.value, 'only owner');
@@ -410,7 +431,7 @@ withdraw:
     // smart_contracts/Agent.algo.ts:39
     // ownerAddress = GlobalState<Account>();
     intc_0 // 0
-    bytec_1 // "ownerAddress"
+    bytec_0 // "ownerAddress"
     app_global_get_ex
     assert // check GlobalState exists
     // smart_contracts/Agent.algo.ts:115
@@ -421,14 +442,12 @@ withdraw:
     // itxn
     //   .payment({
     //     amount: amount,
-    //     receiver: Txn.sender,
+    //     receiver: to,
     //     fee: 0,
     //   })
     //   .submit();
     itxn_begin
-    // smart_contracts/Agent.algo.ts:120
-    // receiver: Txn.sender,
-    txn Sender
+    frame_dig -2
     itxn_field Receiver
     frame_dig -1
     itxn_field Amount
@@ -436,7 +455,7 @@ withdraw:
     // itxn
     //   .payment({
     //     amount: amount,
-    //     receiver: Txn.sender,
+    //     receiver: to,
     //     fee: 0,
     //   })
     intc_1 // 1
@@ -449,9 +468,78 @@ withdraw:
     // itxn
     //   .payment({
     //     amount: amount,
-    //     receiver: Txn.sender,
+    //     receiver: to,
     //     fee: 0,
     //   })
     //   .submit();
     itxn_submit
+    // smart_contracts/Agent.algo.ts:126-131
+    // const callTxn = itxn
+    //       .applicationCall({
+    //         appId:appID,
+    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+    //       })
+    //       .submit()
+    itxn_begin
+    // smart_contracts/Agent.algo.ts:129
+    // appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+    global CurrentApplicationID
+    itob
+    pushbytes 0xc6c45014 // method "emit_log(string,application,string)"
+    itxn_field ApplicationArgs
+    pushbytes 0x00087769746864726177
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    pushbytes 0x0006737563657373
+    itxn_field ApplicationArgs
+    // smart_contracts/Agent.algo.ts:124
+    // const appID =  Application(747862402);
+    pushint 747862402 // 747862402
+    itxn_field ApplicationID
+    // smart_contracts/Agent.algo.ts:126-130
+    // const callTxn = itxn
+    //       .applicationCall({
+    //         appId:appID,
+    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+    //       })
+    pushint 6 // 6
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/Agent.algo.ts:126-131
+    // const callTxn = itxn
+    //       .applicationCall({
+    //         appId:appID,
+    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+    //       })
+    //       .submit()
+    itxn_submit
+    retsub
+
+
+// smart_contracts/Agent.algo.ts::SingleAgentContract.transferOwnership(newOwner: bytes) -> void:
+transferOwnership:
+    // smart_contracts/Agent.algo.ts:137
+    // transferOwnership(newOwner: Account): void {
+    proto 1 0
+    // smart_contracts/Agent.algo.ts:138
+    // assert(Txn.sender === this.ownerAddress.value, 'only owner');
+    txn Sender
+    // smart_contracts/Agent.algo.ts:39
+    // ownerAddress = GlobalState<Account>();
+    intc_0 // 0
+    bytec_0 // "ownerAddress"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/Agent.algo.ts:138
+    // assert(Txn.sender === this.ownerAddress.value, 'only owner');
+    ==
+    assert // only owner
+    // smart_contracts/Agent.algo.ts:39
+    // ownerAddress = GlobalState<Account>();
+    bytec_0 // "ownerAddress"
+    // smart_contracts/Agent.algo.ts:139
+    // this.ownerAddress.value = newOwner;
+    frame_dig -1
+    app_global_put
     retsub

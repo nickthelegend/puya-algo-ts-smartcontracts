@@ -111,15 +111,37 @@ export class SingleAgentContract extends Contract {
     this.taskBox(idx).value = updatedTask.copy();
   }
 
-  withdraw(to: Address, amount: uint64): void {
+  withdraw(to: Account, amount: uint64): void {
     assert(Txn.sender === this.ownerAddress.value, 'only owner');
 
     itxn
       .payment({
         amount: amount,
-        receiver: Txn.sender,
+        receiver: to,
         fee: 0,
       })
       .submit();
+const appID =  Application(747862402);
+
+const callTxn = itxn
+      .applicationCall({
+        appId:appID,
+        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+      })
+      .submit()
+
+      
   }
+
+
+transferOwnership(newOwner: Account): void {
+    assert(Txn.sender === this.ownerAddress.value, 'only owner');
+    this.ownerAddress.value = newOwner;
+  }
+
+
+
+
+
+
 }
