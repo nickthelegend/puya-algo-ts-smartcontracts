@@ -1,0 +1,100 @@
+#pragma version 10
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    // smart_contracts/Logging.algo.ts:28
+    // export class LoggingContract extends Contract {
+    txn NumAppArgs
+    bz main_after_if_else@8
+    pushbytess 0xda53fefe 0xbe6bfb89 // method "createApplication(account)void", method "emit_log(string,application,string)void"
+    txna ApplicationArgs 0
+    match main_createApplication_route@3 main_emit_log_route@4
+
+main_after_if_else@8:
+    // smart_contracts/Logging.algo.ts:28
+    // export class LoggingContract extends Contract {
+    pushint 0 // 0
+    return
+
+main_emit_log_route@4:
+    // smart_contracts/Logging.algo.ts:45
+    // emit_log(eventName: string, agentID: Application, status: string): void {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/Logging.algo.ts:28
+    // export class LoggingContract extends Contract {
+    txna ApplicationArgs 1
+    extract 2 0
+    txna ApplicationArgs 2
+    btoi
+    txnas Applications
+    txna ApplicationArgs 3
+    extract 2 0
+    // smart_contracts/Logging.algo.ts:45
+    // emit_log(eventName: string, agentID: Application, status: string): void {
+    callsub emit_log
+    pushint 1 // 1
+    return
+
+main_createApplication_route@3:
+    // smart_contracts/Logging.algo.ts:36
+    // @abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    // smart_contracts/Logging.algo.ts:28
+    // export class LoggingContract extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    txnas Accounts
+    // smart_contracts/Logging.algo.ts:36
+    // @abimethod()
+    callsub createApplication
+    pushint 1 // 1
+    return
+
+
+// smart_contracts/Logging.algo.ts::LoggingContract.createApplication(ownerAddress: bytes) -> void:
+createApplication:
+    // smart_contracts/Logging.algo.ts:36-37
+    // @abimethod()
+    // createApplication(ownerAddress: Account): void {
+    proto 1 0
+    // smart_contracts/Logging.algo.ts:31
+    // MANAGER_ADDRESS = GlobalState<Account>();
+    pushbytes "MANAGER_ADDRESS"
+    // smart_contracts/Logging.algo.ts:40
+    // this.MANAGER_ADDRESS.value = ownerAddress;
+    frame_dig -1
+    app_global_put
+    retsub
+
+
+// smart_contracts/Logging.algo.ts::LoggingContract.emit_log(eventName: bytes, agentID: uint64, status: bytes) -> void:
+emit_log:
+    // smart_contracts/Logging.algo.ts:45
+    // emit_log(eventName: string, agentID: Application, status: string): void {
+    proto 3 0
+    // smart_contracts/Logging.algo.ts:46
+    // log("event:", eventName, "agentID:", agentID.id, "status:", status);
+    pushbytes "event:"
+    frame_dig -3
+    concat
+    pushbytes "agentID:"
+    concat
+    frame_dig -2
+    itob
+    concat
+    pushbytes "status:"
+    concat
+    frame_dig -1
+    concat
+    log
+    retsub

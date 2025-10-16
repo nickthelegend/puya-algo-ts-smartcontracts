@@ -25,7 +25,7 @@ import { Address } from "@algorandfoundation/algorand-typescript/arc4";
 
 class Task extends arc4.Struct<{ id: arc4.UintN64, success: arc4.Bool, timestamp: arc4.UintN64, details: arc4.Str, amount: arc4.UintN64 ,executor: Account}> {}
 
-export class SingleAgentContract extends Contract {
+export class LoggingContract extends Contract {
   // Agent metadata (global)
   
     MANAGER_ADDRESS = GlobalState<Account>();
@@ -42,8 +42,8 @@ export class SingleAgentContract extends Contract {
 
 
 
-  emit_log(eventName: string, agentID: Application, status: string): void {
-  log(eventName, agentID.toString(), status);
+emit_log(eventName: string, agentID: Application, status: string): void {
+    log("event:", eventName, "agentID:", agentID.id, "status:", status);
 }
 
   

@@ -42,14 +42,12 @@ export class SingleAgentContract extends Contract {
   // BoxMap typed storage for tasks (we store bytes; encode/decode as needed)
   taskBox = BoxMap<uint64, Task>({ keyPrefix: '' });
 
-  // Manager app id (0 = fallback to current app caller)
-  MANAGER_APP_ID = GlobalState<uint64>();
-
+  
   // ----------------------
   // createApplication (initialize single agent)
   // ----------------------
   @abimethod()
-  createApplication(agentName: string, agentDetails: string, pricing: uint64, managerAppId: uint64 = 0 as uint64): void {
+  createApplication(agentName: string, agentDetails: string, pricing: uint64): void {
     // store the creator as the owner
     this.ownerAddress.value = Txn.sender ;
     this.name.value = agentName;
@@ -57,7 +55,6 @@ export class SingleAgentContract extends Contract {
     this.fixedPricing.value = pricing;
     this.createdAt.value = Global.latestTimestamp;
     this.taskCount.value = 0 as uint64;
-    this.MANAGER_APP_ID.value = managerAppId;
   }
 
   // ----------------------
@@ -82,7 +79,7 @@ export class SingleAgentContract extends Contract {
       executor: new Address(payTxn.sender)
     });
 
-    this.taskBox(idx).value = task;
+    this.taskBox(idx).value = task.copy();
 
     // increment taskCount exactly once
     this.taskCount.value = (idx + (1 as uint64)) as uint64;
@@ -100,7 +97,7 @@ export class SingleAgentContract extends Contract {
     details: arc4.Str,
     executor: Address
   ): void {
-    const currentTask = this.taskBox(idx).value;
+    const currentTask = this.taskBox(idx).value.copy();
 
     // use the boolean .value from arc4.Bool to decide whether to overwrite
     const updatedTask = new Task({
@@ -111,7 +108,7 @@ export class SingleAgentContract extends Contract {
   executor: updateExecutor.native ? executor : currentTask.executor,
 });
 
-    this.taskBox(idx).value = updatedTask;
+    this.taskBox(idx).value = updatedTask.copy();
   }
 
   withdraw(to: Address, amount: uint64): void {
