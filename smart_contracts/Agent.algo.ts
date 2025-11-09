@@ -54,9 +54,9 @@ export class SingleAgentContract extends Contract {
     this.ownerAddress.value = Txn.sender ;
     this.name.value = agentName;
     this.details.value = agentDetails;
-    this.fixedPricing.value = pricing;
+    this.fixedPricing.value = Uint64(pricing * 1_000_000);
     this.createdAt.value = Global.latestTimestamp;
-    this.taskCount.value = 0;
+    this.taskCount.value = 1;
   }
   bootStrap(){
     const itxnResult = itxn
@@ -76,10 +76,9 @@ export class SingleAgentContract extends Contract {
   // ----------------------
   pay(payTxn: gtxn.PaymentTxn): void {
     // expectedAmount calculation: assume fixedPricing is in Algos -> convert to microalgos
-    const expectedAmount: uint64 = Uint64(this.fixedPricing.value * 1_000_000);
 
     assert(payTxn.receiver === Global.currentApplicationAddress, 'payment must be to app');
-    assert(payTxn.amount === expectedAmount, 'Incorrect payment amount');
+    assert(payTxn.amount === this.fixedPricing.value, 'Incorrect payment amount');
 
     // index for new task
     const idx = this.taskCount.value;
@@ -103,8 +102,8 @@ export class SingleAgentContract extends Contract {
 const callTxn = itxn
       .applicationCall({
  appId:appID,
-        fee: 1000,
-        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    fee: 0,
+    appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
       })
       .submit()
   }
@@ -150,7 +149,7 @@ const appID =  Application(747862402);
 const callTxn = itxn
       .applicationCall({
  appId:appID,
-        fee: 1000,
+    fee: 0,
         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
       })
       .submit()
