@@ -34,6 +34,8 @@ export class SingleAgentContract extends Contract {
   name = GlobalState<string>();
   details = GlobalState<string>();
   fixedPricing = GlobalState<uint64>();
+    agentAssetID = GlobalState<uint64>();
+
   createdAt = GlobalState<uint64>();
   // store addresses as Address (not Account)
   ownerAddress = GlobalState<Account>();
@@ -56,7 +58,19 @@ export class SingleAgentContract extends Contract {
     this.createdAt.value = Global.latestTimestamp;
     this.taskCount.value = 0;
   }
+  bootStrap(){
+    const itxnResult = itxn
+      .assetConfig({
+        total: 100_000_000_000,
+        decimals: 2,
+        unitName: 'RP',
+        assetName: this.name.value,
+      })
+      .submit()
 
+    
+              this.agentAssetID.value = itxnResult.createdAsset.id;
+  }
   // ----------------------
   // pay (create task when payment is received)
   // ----------------------
@@ -83,6 +97,16 @@ export class SingleAgentContract extends Contract {
 
     // increment taskCount exactly once
     this.taskCount.value = (idx + (1 as uint64)) as uint64;
+
+    const appID =  Application(747862402);
+
+const callTxn = itxn
+      .applicationCall({
+ appId:appID,
+        fee: 1000,
+        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+      })
+      .submit()
   }
 
   // ----------------------
@@ -125,8 +149,9 @@ const appID =  Application(747862402);
 
 const callTxn = itxn
       .applicationCall({
-        appId:appID,
-        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("sucess") ],
+ appId:appID,
+        fee: 1000,
+        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
       })
       .submit()
 

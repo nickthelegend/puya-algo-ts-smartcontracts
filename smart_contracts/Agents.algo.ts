@@ -13,7 +13,8 @@ import {
   Uint64,
   bytes,
     gtxn,
-  Account
+  Account,
+  Application
 } from "@algorandfoundation/algorand-typescript";
 import { arc4 } from '@algorandfoundation/algorand-typescript';
 import { compile } from '@algorandfoundation/algorand-typescript'
@@ -22,7 +23,7 @@ import { compile } from '@algorandfoundation/algorand-typescript'
 import { Address, methodSelector, Str } from "@algorandfoundation/algorand-typescript/arc4";
 import { PaymentTxn } from "@algorandfoundation/algorand-typescript/gtnx";
 import { SingleAgentContract } from "./Agent.algo";
-class Agent extends arc4.Struct<{ name: arc4.Str, details: arc4.Str, fixedPricing: arc4.UintN64, createdAt: arc4.UintN64, assetID: arc4.UintN64 ,creatorName: arc4.Str}> {}
+class Agent extends arc4.Struct<{ name: arc4.Str, details: arc4.Str, fixedPricing: arc4.UintN64, createdAt: arc4.UintN64, appID: arc4.UintN64 ,creatorName: arc4.Str}> {}
 
 export class AgentsContract extends Contract {
   
@@ -43,27 +44,12 @@ export class AgentsContract extends Contract {
         this.number.value = 0;
   }
 
-createAgent(agentName: Str, agentIPFS: Str, pricing: arc4.UintN64, agentImage: Str): void{
+createAgent(agentName: Str, agentIPFS: Str, pricing: arc4.UintN64, agentImage: Str): uint64{
 
         
-                const itxnResult = itxn
-      .assetConfig({
-        total: 100_000_000_000,
-        decimals: 2,
-        unitName: 'RP',
-        assetName: 'Royalty Points',
-      })
-      .submit()
+                
 
-    const assetID =  itxnResult.createdAsset.id
-              this.agentMap(this.number.value).value = new Agent({
-                name: agentName,
-                details: agentIPFS,
-                fixedPricing: pricing,
-                createdAt: new arc4.UintN64(Global.latestTimestamp),
-                 assetID: new arc4.UintN64(assetID) ,creatorName: agentImage
-              });
-              this.number.value +=1;
+              
             //   this.assetID.value = itxnResult.id;
 const compiled = compile(SingleAgentContract)
 
@@ -79,9 +65,17 @@ const helloApp = itxn
 
   })
   .submit().createdApp
+this.agentMap(this.number.value).value = new Agent({
+                name: agentName,
+                details: agentIPFS,
+                fixedPricing: pricing,
+                createdAt: new arc4.UintN64(Global.latestTimestamp),
+                 appID: new arc4.UintN64(helloApp.id) ,creatorName: agentImage
+              });
+              this.number.value +=1;
 
-
-
+  
+              return helloApp.id
             
         
             }
