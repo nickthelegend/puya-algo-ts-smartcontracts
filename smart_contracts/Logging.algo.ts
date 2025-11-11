@@ -42,8 +42,8 @@ export class LoggingContract extends Contract {
 
 
 
-emit_log(eventName: string, agentID: Application, status: string): void {
-    log("event:", eventName, "agentID:", agentID.id, "status:", status);
+emit_log(eventName: string, agentID: uint64, status: string): void {
+    log("event:", eventName, "agentID:", agentID, "status:", status);
 }
 
   

@@ -20,7 +20,7 @@ import { arc4 } from '@algorandfoundation/algorand-typescript';
 import { compile } from '@algorandfoundation/algorand-typescript'
 
 // Address and ARC4 types live under the arc4 submodule
-import { Address } from "@algorandfoundation/algorand-typescript/arc4";
+import { Address, Str } from "@algorandfoundation/algorand-typescript/arc4";
 import { PaymentTxn } from "@algorandfoundation/algorand-typescript/gtnx";
 import { UserAccountContract } from "./UserAccount.algo";
 import { encodeArc4, methodSelector } from '@algorandfoundation/algorand-typescript/arc4'
@@ -47,7 +47,7 @@ export class MainSmartContract extends Contract {
     
   }
 
-  register(payTxn : gtxn.PaymentTxn, userAddress : Account){
+  register(payTxn : gtxn.PaymentTxn, userAddress : bytes): uint64{
 
     assert(payTxn.receiver === Global.currentApplicationAddress, 'Payment must be to the contract')
     assert(payTxn.amount === Uint64(5000), 'Incorrect payment amount')
@@ -56,22 +56,22 @@ export class MainSmartContract extends Contract {
 
 const compiled = compile(UserAccountContract)
 
-
+const userAccount = Account(userAddress);
 const helloApp = itxn
   .applicationCall({
     appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
     approvalProgram: compiled.approvalProgram,
     clearStateProgram: compiled.clearStateProgram,
     globalNumBytes: compiled.globalBytes,
-          accounts: [ userAddress ],  
+          accounts: [ userAccount ],  
            globalNumUint: 2, // <-- Allow 1 uint in global state,
 
   })
   .submit().createdApp
 
     this.users(Txn.sender).value =helloApp
-
+  return helloApp.id
   }
-
+  
   
 }
