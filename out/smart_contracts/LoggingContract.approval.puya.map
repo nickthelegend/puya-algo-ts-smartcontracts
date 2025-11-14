@@ -24,26 +24,26 @@
       "stack_out": []
     },
     "6": {
-      "op": "pushbytess 0xda53fefe 0x55032404 // method \"createApplication(account)void\", method \"emit_log(string,string,string)void\"",
+      "op": "pushbytess 0xda53fefe 0xb74c9216 // method \"createApplication(account)void\", method \"emit_log(string,byte[],string)void\"",
       "defined_out": [
         "Method(createApplication(account)void)",
-        "Method(emit_log(string,string,string)void)"
+        "Method(emit_log(string,byte[],string)void)"
       ],
       "stack_out": [
         "Method(createApplication(account)void)",
-        "Method(emit_log(string,string,string)void)"
+        "Method(emit_log(string,byte[],string)void)"
       ]
     },
     "18": {
       "op": "txna ApplicationArgs 0",
       "defined_out": [
         "Method(createApplication(account)void)",
-        "Method(emit_log(string,string,string)void)",
+        "Method(emit_log(string,byte[],string)void)",
         "tmp%2#0"
       ],
       "stack_out": [
         "Method(createApplication(account)void)",
-        "Method(emit_log(string,string,string)void)",
+        "Method(emit_log(string,byte[],string)void)",
         "tmp%2#0"
       ]
     },

@@ -104,7 +104,7 @@ const callTxn = itxn
       .applicationCall({
  appId:appID,
     fee: 0,
-    appArgs: [LoggingContract.prototype.emit_log, new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
+    appArgs: [arc4.methodSelector('emit_log(string,string,string)'), new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
       })
       .submit()
   }
@@ -156,7 +156,7 @@ const callTxn = itxn
       .applicationCall({
  appId:appID,
     fee: 0,
-    appArgs: [LoggingContract.prototype.emit_log, "withdraw", Global.currentApplicationId.id, new arc4.Str("success") ],
+    appArgs: [arc4.methodSelector('emit_log(string,string,string)'), "withdraw", Global.currentApplicationId.id, new arc4.Str("success") ],
       })
       .submit()
   
@@ -171,8 +171,18 @@ transferOwnership(newOwner: Account): void {
   }
 
   test_log(): void{
-    
+    const appID =  Application(749378522);
+
+const callTxn = itxn
+      .applicationCall({
+ appId:appID,
+    fee: 0,
+    appArgs: [arc4.methodSelector('emit_log(string,string,string)'), "pay",       new arc4.UintN64(Global.currentApplicationId.id).bytes, "success" ],
+      })
+      .submit()
   }
+
+  
 
 
 
