@@ -3,9 +3,9 @@
 
 // @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
 main:
-    intcblock 0 1 747862402 6
-    bytecblock "ownerAddress" "taskCount" "name" "fixedPricing" 0x0033 0xc6c45014 0x000773756363657373
-    // smart_contracts/Agent.algo.ts:32
+    intcblock 0 1 749378522 6
+    bytecblock "ownerAddress" "taskCount" "name" "fixedPricing" 0x0033 0xa57f1892 0x000773756363657373
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txn NumAppArgs
     bz main_after_if_else@12
@@ -14,53 +14,53 @@ main:
     match main_createApplication_route@3 main_bootStrap_route@4 main_pay_route@5 main_updateTask_route@6 main_withdraw_route@7 main_transferOwnership_route@8
 
 main_after_if_else@12:
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     intc_0 // 0
     return
 
 main_transferOwnership_route@8:
-    // smart_contracts/Agent.algo.ts:161
+    // smart_contracts/Agent.algo.ts:168
     // transferOwnership(newOwner: Account): void {
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/Agent.algo.ts:161
+    // smart_contracts/Agent.algo.ts:168
     // transferOwnership(newOwner: Account): void {
     callsub transferOwnership
     intc_1 // 1
     return
 
 main_withdraw_route@7:
-    // smart_contracts/Agent.algo.ts:137
+    // smart_contracts/Agent.algo.ts:138
     // withdraw(to: Account, amount: uint64): void {
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txna ApplicationArgs 1
     btoi
     txnas Accounts
     txna ApplicationArgs 2
     btoi
-    // smart_contracts/Agent.algo.ts:137
+    // smart_contracts/Agent.algo.ts:138
     // withdraw(to: Account, amount: uint64): void {
     callsub withdraw
     intc_1 // 1
     return
 
 main_updateTask_route@6:
-    // smart_contracts/Agent.algo.ts:114-122
+    // smart_contracts/Agent.algo.ts:115-123
     // updateTask(
     //   idx: uint64,
     //   updateSuccess: arc4.Bool,
@@ -75,7 +75,7 @@ main_updateTask_route@6:
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txna ApplicationArgs 1
     btoi
@@ -85,7 +85,7 @@ main_updateTask_route@6:
     txna ApplicationArgs 5
     txna ApplicationArgs 6
     txna ApplicationArgs 7
-    // smart_contracts/Agent.algo.ts:114-122
+    // smart_contracts/Agent.algo.ts:115-123
     // updateTask(
     //   idx: uint64,
     //   updateSuccess: arc4.Bool,
@@ -100,14 +100,14 @@ main_updateTask_route@6:
     return
 
 main_pay_route@5:
-    // smart_contracts/Agent.algo.ts:77
+    // smart_contracts/Agent.algo.ts:78
     // pay(payTxn: gtxn.PaymentTxn): void {
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txn GroupIndex
     intc_1 // 1
@@ -117,14 +117,14 @@ main_pay_route@5:
     intc_1 // pay
     ==
     assert // transaction type is pay
-    // smart_contracts/Agent.algo.ts:77
+    // smart_contracts/Agent.algo.ts:78
     // pay(payTxn: gtxn.PaymentTxn): void {
     callsub pay
     intc_1 // 1
     return
 
 main_bootStrap_route@4:
-    // smart_contracts/Agent.algo.ts:61
+    // smart_contracts/Agent.algo.ts:62
     // bootStrap(){
     txn OnCompletion
     !
@@ -136,7 +136,7 @@ main_bootStrap_route@4:
     return
 
 main_createApplication_route@3:
-    // smart_contracts/Agent.algo.ts:51
+    // smart_contracts/Agent.algo.ts:52
     // @abimethod()
     txn OnCompletion
     !
@@ -144,7 +144,7 @@ main_createApplication_route@3:
     txn ApplicationID
     !
     assert // can only call when creating
-    // smart_contracts/Agent.algo.ts:32
+    // smart_contracts/Agent.algo.ts:33
     // export class SingleAgentContract extends Contract {
     txna ApplicationArgs 1
     extract 2 0
@@ -152,7 +152,7 @@ main_createApplication_route@3:
     extract 2 0
     txna ApplicationArgs 3
     btoi
-    // smart_contracts/Agent.algo.ts:51
+    // smart_contracts/Agent.algo.ts:52
     // @abimethod()
     callsub createApplication
     intc_1 // 1
@@ -161,54 +161,54 @@ main_createApplication_route@3:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.createApplication(agentName: bytes, agentDetails: bytes, pricing: uint64) -> void:
 createApplication:
-    // smart_contracts/Agent.algo.ts:51-52
+    // smart_contracts/Agent.algo.ts:52-53
     // @abimethod()
     // createApplication(agentName: string, agentDetails: string, pricing: uint64): void {
     proto 3 0
-    // smart_contracts/Agent.algo.ts:41
+    // smart_contracts/Agent.algo.ts:42
     // ownerAddress = GlobalState<Account>();
     bytec_0 // "ownerAddress"
-    // smart_contracts/Agent.algo.ts:54
+    // smart_contracts/Agent.algo.ts:55
     // this.ownerAddress.value = Txn.sender ;
     txn Sender
     app_global_put
-    // smart_contracts/Agent.algo.ts:34
+    // smart_contracts/Agent.algo.ts:35
     // name = GlobalState<string>();
     bytec_2 // "name"
-    // smart_contracts/Agent.algo.ts:55
+    // smart_contracts/Agent.algo.ts:56
     // this.name.value = agentName;
     frame_dig -3
     app_global_put
-    // smart_contracts/Agent.algo.ts:35
+    // smart_contracts/Agent.algo.ts:36
     // details = GlobalState<string>();
     pushbytes "details"
-    // smart_contracts/Agent.algo.ts:56
+    // smart_contracts/Agent.algo.ts:57
     // this.details.value = agentDetails;
     frame_dig -2
     app_global_put
-    // smart_contracts/Agent.algo.ts:57
+    // smart_contracts/Agent.algo.ts:58
     // this.fixedPricing.value = Uint64(pricing * 1_000_000);
     frame_dig -1
     pushint 1000000 // 1000000
     *
-    // smart_contracts/Agent.algo.ts:36
+    // smart_contracts/Agent.algo.ts:37
     // fixedPricing = GlobalState<uint64>();
     bytec_3 // "fixedPricing"
-    // smart_contracts/Agent.algo.ts:57
+    // smart_contracts/Agent.algo.ts:58
     // this.fixedPricing.value = Uint64(pricing * 1_000_000);
     swap
     app_global_put
-    // smart_contracts/Agent.algo.ts:39
+    // smart_contracts/Agent.algo.ts:40
     // createdAt = GlobalState<uint64>();
     pushbytes "createdAt"
-    // smart_contracts/Agent.algo.ts:58
+    // smart_contracts/Agent.algo.ts:59
     // this.createdAt.value = Global.latestTimestamp;
     global LatestTimestamp
     app_global_put
-    // smart_contracts/Agent.algo.ts:43
+    // smart_contracts/Agent.algo.ts:44
     // taskCount = GlobalState<uint64>();
     bytec_1 // "taskCount"
-    // smart_contracts/Agent.algo.ts:59
+    // smart_contracts/Agent.algo.ts:60
     // this.taskCount.value = 1;
     intc_1 // 1
     app_global_put
@@ -217,7 +217,7 @@ createApplication:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.bootStrap() -> void:
 bootStrap:
-    // smart_contracts/Agent.algo.ts:62-69
+    // smart_contracts/Agent.algo.ts:63-70
     // const itxnResult = itxn
     //   .assetConfig({
     //     total: 100_000_000_000,
@@ -227,26 +227,26 @@ bootStrap:
     //   })
     //   .submit()
     itxn_begin
-    // smart_contracts/Agent.algo.ts:34
+    // smart_contracts/Agent.algo.ts:35
     // name = GlobalState<string>();
     intc_0 // 0
     bytec_2 // "name"
     app_global_get_ex
     assert // check GlobalState exists
     itxn_field ConfigAssetName
-    // smart_contracts/Agent.algo.ts:66
+    // smart_contracts/Agent.algo.ts:67
     // unitName: 'RP',
     pushbytes "RP"
     itxn_field ConfigAssetUnitName
-    // smart_contracts/Agent.algo.ts:65
+    // smart_contracts/Agent.algo.ts:66
     // decimals: 2,
     pushint 2 // 2
     itxn_field ConfigAssetDecimals
-    // smart_contracts/Agent.algo.ts:64
+    // smart_contracts/Agent.algo.ts:65
     // total: 100_000_000_000,
     pushint 100000000000 // 100000000000
     itxn_field ConfigAssetTotal
-    // smart_contracts/Agent.algo.ts:62-68
+    // smart_contracts/Agent.algo.ts:63-69
     // const itxnResult = itxn
     //   .assetConfig({
     //     total: 100_000_000_000,
@@ -258,7 +258,7 @@ bootStrap:
     itxn_field TypeEnum
     intc_0 // 0
     itxn_field Fee
-    // smart_contracts/Agent.algo.ts:62-69
+    // smart_contracts/Agent.algo.ts:63-70
     // const itxnResult = itxn
     //   .assetConfig({
     //     total: 100_000_000_000,
@@ -268,11 +268,11 @@ bootStrap:
     //   })
     //   .submit()
     itxn_submit
-    // smart_contracts/Agent.algo.ts:37
+    // smart_contracts/Agent.algo.ts:38
     // agentAssetID = GlobalState<uint64>();
     pushbytes "agentAssetID"
     itxn CreatedAssetID
-    // smart_contracts/Agent.algo.ts:72
+    // smart_contracts/Agent.algo.ts:73
     // this.agentAssetID.value = itxnResult.createdAsset.id;
     app_global_put
     retsub
@@ -280,49 +280,49 @@ bootStrap:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.pay(payTxn: uint64) -> void:
 pay:
-    // smart_contracts/Agent.algo.ts:77
+    // smart_contracts/Agent.algo.ts:78
     // pay(payTxn: gtxn.PaymentTxn): void {
     proto 1 0
-    // smart_contracts/Agent.algo.ts:80
+    // smart_contracts/Agent.algo.ts:81
     // assert(payTxn.receiver === Global.currentApplicationAddress, 'payment must be to app');
     frame_dig -1
     gtxns Receiver
     global CurrentApplicationAddress
     ==
     assert // payment must be to app
-    // smart_contracts/Agent.algo.ts:81
+    // smart_contracts/Agent.algo.ts:82
     // assert(payTxn.amount === this.fixedPricing.value, 'Incorrect payment amount');
     frame_dig -1
     gtxns Amount
-    // smart_contracts/Agent.algo.ts:36
+    // smart_contracts/Agent.algo.ts:37
     // fixedPricing = GlobalState<uint64>();
     intc_0 // 0
     bytec_3 // "fixedPricing"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/Agent.algo.ts:81
+    // smart_contracts/Agent.algo.ts:82
     // assert(payTxn.amount === this.fixedPricing.value, 'Incorrect payment amount');
     ==
     assert // Incorrect payment amount
-    // smart_contracts/Agent.algo.ts:43
+    // smart_contracts/Agent.algo.ts:44
     // taskCount = GlobalState<uint64>();
     intc_0 // 0
     bytec_1 // "taskCount"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/Agent.algo.ts:88
+    // smart_contracts/Agent.algo.ts:89
     // id: new arc4.UintN64(idx),
     dup
     itob
-    // smart_contracts/Agent.algo.ts:90
+    // smart_contracts/Agent.algo.ts:91
     // timestamp: new arc4.UintN64(Global.latestTimestamp),
     global LatestTimestamp
     itob
-    // smart_contracts/Agent.algo.ts:92
+    // smart_contracts/Agent.algo.ts:93
     // executor: new Address(payTxn.sender)
     frame_dig -1
     gtxns Sender
-    // smart_contracts/Agent.algo.ts:87-93
+    // smart_contracts/Agent.algo.ts:88-94
     // const task = new Task({
     //   id: new arc4.UintN64(idx),
     //   success: new arc4.Bool(false),
@@ -331,10 +331,10 @@ pay:
     //   executor: new Address(payTxn.sender)
     // });
     dig 2
-    // smart_contracts/Agent.algo.ts:89
+    // smart_contracts/Agent.algo.ts:90
     // success: new arc4.Bool(false),
     pushbytes 0x00
-    // smart_contracts/Agent.algo.ts:87-93
+    // smart_contracts/Agent.algo.ts:88-94
     // const task = new Task({
     //   id: new arc4.UintN64(idx),
     //   success: new arc4.Bool(false),
@@ -349,10 +349,10 @@ pay:
     concat
     swap
     concat
-    // smart_contracts/Agent.algo.ts:91
+    // smart_contracts/Agent.algo.ts:92
     // details: new arc4.Str("Payment Done!!, Task Created"),
     pushbytes 0x001c5061796d656e7420446f6e6521212c205461736b2043726561746564
-    // smart_contracts/Agent.algo.ts:87-93
+    // smart_contracts/Agent.algo.ts:88-94
     // const task = new Task({
     //   id: new arc4.UintN64(idx),
     //   success: new arc4.Bool(false),
@@ -361,66 +361,66 @@ pay:
     //   executor: new Address(payTxn.sender)
     // });
     concat
-    // smart_contracts/Agent.algo.ts:95
+    // smart_contracts/Agent.algo.ts:96
     // this.taskBox(idx).value = task.copy();
     dig 1
     box_del
     pop
     box_put
-    // smart_contracts/Agent.algo.ts:98
+    // smart_contracts/Agent.algo.ts:99
     // this.taskCount.value = (idx + (1 as uint64)) as uint64;
     intc_1 // 1
     +
-    // smart_contracts/Agent.algo.ts:43
+    // smart_contracts/Agent.algo.ts:44
     // taskCount = GlobalState<uint64>();
     bytec_1 // "taskCount"
-    // smart_contracts/Agent.algo.ts:98
+    // smart_contracts/Agent.algo.ts:99
     // this.taskCount.value = (idx + (1 as uint64)) as uint64;
     swap
     app_global_put
-    // smart_contracts/Agent.algo.ts:102-108
+    // smart_contracts/Agent.algo.ts:103-109
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //     appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     //       .submit()
     itxn_begin
-    // smart_contracts/Agent.algo.ts:106
-    // appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    // smart_contracts/Agent.algo.ts:107
+    // appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
     global CurrentApplicationID
     itob
-    bytec 5 // method "emit_log(string,application,string)"
+    bytec 5 // method "emit_log(string,uint64,string)"
     itxn_field ApplicationArgs
     pushbytes 0x0003706179
     itxn_field ApplicationArgs
     itxn_field ApplicationArgs
     bytec 6 // 0x000773756363657373
     itxn_field ApplicationArgs
-    // smart_contracts/Agent.algo.ts:100
-    // const appID =  Application(747862402);
-    intc_2 // 747862402
+    // smart_contracts/Agent.algo.ts:101
+    // const appID =  Application(749378522);
+    intc_2 // 749378522
     itxn_field ApplicationID
-    // smart_contracts/Agent.algo.ts:102-107
+    // smart_contracts/Agent.algo.ts:103-108
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //     appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     intc_3 // 6
     itxn_field TypeEnum
-    // smart_contracts/Agent.algo.ts:105
+    // smart_contracts/Agent.algo.ts:106
     // fee: 0,
     intc_0 // 0
     itxn_field Fee
-    // smart_contracts/Agent.algo.ts:102-108
+    // smart_contracts/Agent.algo.ts:103-109
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //     appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     //       .submit()
     itxn_submit
@@ -429,7 +429,7 @@ pay:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.updateTask(idx: uint64, updateSuccess: bytes, updateDetails: bytes, updateExecutor: bytes, success: bytes, details: bytes, executor: bytes) -> void:
 updateTask:
-    // smart_contracts/Agent.algo.ts:114-122
+    // smart_contracts/Agent.algo.ts:115-123
     // updateTask(
     //   idx: uint64,
     //   updateSuccess: arc4.Bool,
@@ -442,18 +442,18 @@ updateTask:
     proto 7 0
     intc_0 // 0
     dup
-    // smart_contracts/Agent.algo.ts:123
+    // smart_contracts/Agent.algo.ts:124
     // const currentTask = this.taskBox(idx).value.copy();
     frame_dig -7
     itob
     dup
     box_get
     assert // Box must have value
-    // smart_contracts/Agent.algo.ts:128
+    // smart_contracts/Agent.algo.ts:129
     // timestamp: new arc4.UintN64(Global.latestTimestamp),
     global LatestTimestamp
     itob
-    // smart_contracts/Agent.algo.ts:129
+    // smart_contracts/Agent.algo.ts:130
     // success: updateSuccess.native ? success : currentTask.success,
     frame_dig -6
     intc_0 // 0
@@ -463,7 +463,7 @@ updateTask:
     frame_bury 0
 
 updateTask_ternary_merge@3:
-    // smart_contracts/Agent.algo.ts:130
+    // smart_contracts/Agent.algo.ts:131
     // details: updateDetails.native ? details : currentTask.details,
     frame_dig -5
     intc_0 // 0
@@ -473,7 +473,7 @@ updateTask_ternary_merge@3:
     frame_bury 1
 
 updateTask_ternary_merge@6:
-    // smart_contracts/Agent.algo.ts:131
+    // smart_contracts/Agent.algo.ts:132
     // executor: updateExecutor.native ? executor : currentTask.executor,
     frame_dig -4
     intc_0 // 0
@@ -482,7 +482,7 @@ updateTask_ternary_merge@6:
     frame_dig -1
 
 updateTask_ternary_merge@9:
-    // smart_contracts/Agent.algo.ts:126-132
+    // smart_contracts/Agent.algo.ts:127-133
     //     const updatedTask = new Task({
     //   id: new arc4.UintN64(idx),
     //   timestamp: new arc4.UintN64(Global.latestTimestamp),
@@ -502,7 +502,7 @@ updateTask_ternary_merge@9:
     concat
     frame_dig 1
     concat
-    // smart_contracts/Agent.algo.ts:134
+    // smart_contracts/Agent.algo.ts:135
     // this.taskBox(idx).value = updatedTask.copy();
     dig 1
     box_del
@@ -511,14 +511,14 @@ updateTask_ternary_merge@9:
     retsub
 
 updateTask_ternary_false@8:
-    // smart_contracts/Agent.algo.ts:131
+    // smart_contracts/Agent.algo.ts:132
     // executor: updateExecutor.native ? executor : currentTask.executor,
     frame_dig 3
     extract 19 32 // on error: Index access is out of bounds
     b updateTask_ternary_merge@9
 
 updateTask_ternary_false@5:
-    // smart_contracts/Agent.algo.ts:130
+    // smart_contracts/Agent.algo.ts:131
     // details: updateDetails.native ? details : currentTask.details,
     frame_dig 3
     dup
@@ -531,7 +531,7 @@ updateTask_ternary_false@5:
     b updateTask_ternary_merge@6
 
 updateTask_ternary_false@2:
-    // smart_contracts/Agent.algo.ts:129
+    // smart_contracts/Agent.algo.ts:130
     // success: updateSuccess.native ? success : currentTask.success,
     frame_dig 3
     pushint 64 // 64
@@ -546,23 +546,23 @@ updateTask_ternary_false@2:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.withdraw(to: bytes, amount: uint64) -> void:
 withdraw:
-    // smart_contracts/Agent.algo.ts:137
+    // smart_contracts/Agent.algo.ts:138
     // withdraw(to: Account, amount: uint64): void {
     proto 2 0
-    // smart_contracts/Agent.algo.ts:138
+    // smart_contracts/Agent.algo.ts:139
     // assert(Txn.sender === this.ownerAddress.value, 'only owner');
     txn Sender
-    // smart_contracts/Agent.algo.ts:41
+    // smart_contracts/Agent.algo.ts:42
     // ownerAddress = GlobalState<Account>();
     intc_0 // 0
     bytec_0 // "ownerAddress"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/Agent.algo.ts:138
+    // smart_contracts/Agent.algo.ts:139
     // assert(Txn.sender === this.ownerAddress.value, 'only owner');
     ==
     assert // only owner
-    // smart_contracts/Agent.algo.ts:140-146
+    // smart_contracts/Agent.algo.ts:141-147
     // itxn
     //   .payment({
     //     amount: amount,
@@ -575,7 +575,7 @@ withdraw:
     itxn_field Receiver
     frame_dig -1
     itxn_field Amount
-    // smart_contracts/Agent.algo.ts:140-145
+    // smart_contracts/Agent.algo.ts:141-146
     // itxn
     //   .payment({
     //     amount: amount,
@@ -584,11 +584,11 @@ withdraw:
     //   })
     intc_1 // 1
     itxn_field TypeEnum
-    // smart_contracts/Agent.algo.ts:144
+    // smart_contracts/Agent.algo.ts:145
     // fee: 0,
     intc_0 // 0
     itxn_field Fee
-    // smart_contracts/Agent.algo.ts:140-146
+    // smart_contracts/Agent.algo.ts:141-147
     // itxn
     //   .payment({
     //     amount: amount,
@@ -597,49 +597,49 @@ withdraw:
     //   })
     //   .submit();
     itxn_submit
-    // smart_contracts/Agent.algo.ts:149-155
+    // smart_contracts/Agent.algo.ts:155-161
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('withdraw'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     //       .submit()
     itxn_begin
-    // smart_contracts/Agent.algo.ts:153
-    // appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    // smart_contracts/Agent.algo.ts:159
+    // appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('withdraw'), Global.currentApplicationId.id, new arc4.Str("success") ],
     global CurrentApplicationID
     itob
-    bytec 5 // method "emit_log(string,application,string)"
+    bytec 5 // method "emit_log(string,uint64,string)"
     itxn_field ApplicationArgs
     pushbytes 0x00087769746864726177
     itxn_field ApplicationArgs
     itxn_field ApplicationArgs
     bytec 6 // 0x000773756363657373
     itxn_field ApplicationArgs
-    // smart_contracts/Agent.algo.ts:147
-    // const appID =  Application(747862402);
-    intc_2 // 747862402
+    // smart_contracts/Agent.algo.ts:148
+    // const appID =  Application(749378522);
+    intc_2 // 749378522
     itxn_field ApplicationID
-    // smart_contracts/Agent.algo.ts:149-154
+    // smart_contracts/Agent.algo.ts:155-160
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('withdraw'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     intc_3 // 6
     itxn_field TypeEnum
-    // smart_contracts/Agent.algo.ts:152
+    // smart_contracts/Agent.algo.ts:158
     // fee: 0,
     intc_0 // 0
     itxn_field Fee
-    // smart_contracts/Agent.algo.ts:149-155
+    // smart_contracts/Agent.algo.ts:155-161
     // const callTxn = itxn
     //       .applicationCall({
     //  appId:appID,
     //     fee: 0,
-    //         appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    //     appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), new arc4.Str('withdraw'), Global.currentApplicationId.id, new arc4.Str("success") ],
     //       })
     //       .submit()
     itxn_submit
@@ -648,26 +648,26 @@ withdraw:
 
 // smart_contracts/Agent.algo.ts::SingleAgentContract.transferOwnership(newOwner: bytes) -> void:
 transferOwnership:
-    // smart_contracts/Agent.algo.ts:161
+    // smart_contracts/Agent.algo.ts:168
     // transferOwnership(newOwner: Account): void {
     proto 1 0
-    // smart_contracts/Agent.algo.ts:162
+    // smart_contracts/Agent.algo.ts:169
     // assert(Txn.sender === this.ownerAddress.value, 'only owner');
     txn Sender
-    // smart_contracts/Agent.algo.ts:41
+    // smart_contracts/Agent.algo.ts:42
     // ownerAddress = GlobalState<Account>();
     intc_0 // 0
     bytec_0 // "ownerAddress"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/Agent.algo.ts:162
+    // smart_contracts/Agent.algo.ts:169
     // assert(Txn.sender === this.ownerAddress.value, 'only owner');
     ==
     assert // only owner
-    // smart_contracts/Agent.algo.ts:41
+    // smart_contracts/Agent.algo.ts:42
     // ownerAddress = GlobalState<Account>();
     bytec_0 // "ownerAddress"
-    // smart_contracts/Agent.algo.ts:163
+    // smart_contracts/Agent.algo.ts:170
     // this.ownerAddress.value = newOwner;
     frame_dig -1
     app_global_put

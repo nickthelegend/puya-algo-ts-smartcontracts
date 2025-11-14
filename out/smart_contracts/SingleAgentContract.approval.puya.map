@@ -3,7 +3,7 @@
   "sources": [
     "/workspaces/puya-algo-ts-smartcontracts/smart_contracts/Agent.algo.ts"
   ],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA+BA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;AAAA;;AAiIA;;AAAA;AAAA;AAAA;;AAAA;AAjIA;;;AAAA;AAAA;;AAiIA;;;AAAA;;AAxBE;;AAAA;AAAA;AAAA;;AAAA;AAzGF;;;AAAA;AAAA;;AAAA;;;AAAA;AAyGE;;;AAAA;;AAvBA;;AAAA;AAAA;AAAA;;AAAA;AAlFF;;;AAAA;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAkFE;;;AAAA;;AArCA;;AAAA;AAAA;AAAA;;AAAA;AA7CF;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AA6CE;;;AAAA;;AAhBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAVC;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAnBH;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;AAmBG;;;AAAA;;AAAD;;;AAVA;AAagC;;AAA9B;AApBF;AAqBE;;AAAA;AApBF;;;;;;;;;AAqBE;;AAAA;AACiC;;AAAU;;;;AAAV;AArBnC;AAqBE;AAAA;AAlBF;;;;;;;;;;;AAmBgC;;AAA9B;AAfF;AAgByB;AAAvB;;AAGmB;AA5BrB;AAAA;AAAA;AAAA;;;AAgCgB;;;;;;AADA;;;;AADH;;;;;;;;;AAFQ;;;;AAAA;;;AAAA;AAzBnB;;;;;;;;;;;;;;;;AAmCU;;AAKZ;;;AAGgB;;AAAA;;AAAoB;;AAA3B;AAAP;AACc;;AAAA;;AA7ChB;AAAA;AAAA;AAAA;AA6CS;AAAP;AAtCF;AAAA;AAAA;AAAA;AA6CQ;AAAA;AAE+B;;AAAxB;AAEkB;;AAAA;;AALlB;;AAEF;;;AAFE;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAIF;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAJE;AAQb;;AAAA;;AAAA;AAG+B;AAAP;AAvD1B;AAuDE;AAAA;AAIY;AAIkG;;AAApG;AAAA;;;;AAA4D;;;;;;;;;;;AAAkE;;;;AAN7G;;;AAEf;;;AAGP;;;AAHO;;AAYd;;;;;AASsB;;AAAA;AAAA;AAAkB;AAAA;AAKL;;AAAxB;AACY;;;AAAA;AAAd;;;;;;;AACc;;;AAAA;AAAd;;;;;;;AACgB;;;AAAA;AAAf;;;;;AALY;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAQpB;;AAAA;;AAAA;;AAHuD;;AAAA;;;;;;AADH;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;;;;;AADA;;AAAA;;AAAA;AAAA;;;AAAA;AAAA;;AAAA;;;;;;AAQtD;;;AACa;;AAjGb;AAAA;AAAA;AAAA;AAiGS;AAAP;AAEA;;;;;;;;;AAAA;;;AAIS;;;AAJT;AASY;AAI2G;;AAAzG;AAAA;;;;AAA4D;;;;;;;;;;;;;;;;AAAuE;;;;AAN1H;;;AAEX;;;AAGP;;;AAHO;;AAYhB;;;AACe;;AAzHb;AAAA;AAAA;AAAA;AAyHS;AAAP;AAzHF;AA0HE;;AAAA;",
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAgCA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;AAAA;;AAuIA;;AAAA;AAAA;AAAA;;AAAA;AAvIA;;;AAAA;AAAA;;AAuIA;;;AAAA;;AA9BE;;AAAA;AAAA;AAAA;;AAAA;AAzGF;;;AAAA;AAAA;;AAAA;;;AAAA;AAyGE;;;AAAA;;AAvBA;;AAAA;AAAA;AAAA;;AAAA;AAlFF;;;AAAA;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAkFE;;;AAAA;;AArCA;;AAAA;AAAA;AAAA;;AAAA;AA7CF;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AA6CE;;;AAAA;;AAhBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAVC;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAnBH;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;AAmBG;;;AAAA;;AAAD;;;AAVA;AAagC;;AAA9B;AApBF;AAqBE;;AAAA;AApBF;;;;;;;;;AAqBE;;AAAA;AACiC;;AAAU;;;;AAAV;AArBnC;AAqBE;AAAA;AAlBF;;;;;;;;;;;AAmBgC;;AAA9B;AAfF;AAgByB;AAAvB;;AAGmB;AA5BrB;AAAA;AAAA;AAAA;;;AAgCgB;;;;;;AADA;;;;AADH;;;;;;;;;AAFQ;;;;AAAA;;;AAAA;AAzBnB;;;;;;;;;;;;;;;;AAmCU;;AAKZ;;;AAGgB;;AAAA;;AAAoB;;AAA3B;AAAP;AACc;;AAAA;;AA7ChB;AAAA;AAAA;AAAA;AA6CS;AAAP;AAtCF;AAAA;AAAA;AAAA;AA6CQ;AAAA;AAE+B;;AAAxB;AAEkB;;AAAA;;AALlB;;AAEF;;;AAFE;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAIF;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAJE;AAQb;;AAAA;;AAAA;AAG+B;AAAP;AAvD1B;AAuDE;AAAA;AAIY;AAIiF;;AAAnF;AAAA;;;;AAAuD;;;;;;;;;;;AAAqD;;;;AAN3F;;;AAEf;;;AAGP;;;AAHO;;AAYd;;;;;AASsB;;AAAA;AAAA;AAAkB;AAAA;AAKL;;AAAxB;AACY;;;AAAA;AAAd;;;;;;;AACc;;;AAAA;AAAd;;;;;;;AACgB;;;AAAA;AAAf;;;;;AALY;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAQpB;;AAAA;;AAAA;;AAHuD;;AAAA;;;;;;AADH;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;;;;;AADA;;AAAA;;AAAA;AAAA;;;AAAA;AAAA;;AAAA;;;;;;AAQtD;;;AACa;;AAjGb;AAAA;AAAA;AAAA;AAiGS;AAAP;AAEA;;;;;;;;;AAAA;;;AAIS;;;AAJT;AAcY;AAIsF;;AAAxF;AAAA;;;;AAAuD;;;;;;;;;;;;;;;;AAA0D;;;;AAXpG;;;AAOX;;;AAGP;;;AAHO;;AAahB;;;AACe;;AA/Hb;AAAA;AAAA;AAAA;AA+HS;AAAP;AA/HF;AAgIE;;AAAA;",
   "op_pc_offset": 0,
   "pc_events": {
     "1": {
@@ -11,10 +11,10 @@
       "params": {},
       "block": "main",
       "stack_in": [],
-      "op": "intcblock 0 1 747862402 6"
+      "op": "intcblock 0 1 749378522 6"
     },
     "11": {
-      "op": "bytecblock \"ownerAddress\" \"taskCount\" \"name\" \"fixedPricing\" 0x0033 0xc6c45014 0x000773756363657373"
+      "op": "bytecblock \"ownerAddress\" \"taskCount\" \"name\" \"fixedPricing\" 0x0033 0xa57f1892 0x000773756363657373"
     },
     "72": {
       "op": "txn NumAppArgs",
@@ -1595,14 +1595,14 @@
       ]
     },
     "463": {
-      "op": "bytec 5 // method \"emit_log(string,application,string)\"",
+      "op": "bytec 5 // method \"emit_log(string,uint64,string)\"",
       "defined_out": [
-        "Method(emit_log(string,application,string))",
+        "Method(emit_log(string,uint64,string))",
         "tmp%9#0"
       ],
       "stack_out": [
         "tmp%9#0",
-        "Method(emit_log(string,application,string))"
+        "Method(emit_log(string,uint64,string))"
       ]
     },
     "465": {
@@ -1646,12 +1646,12 @@
       "stack_out": []
     },
     "482": {
-      "op": "intc_2 // 747862402",
+      "op": "intc_2 // 749378522",
       "defined_out": [
-        "747862402"
+        "749378522"
       ],
       "stack_out": [
-        "747862402"
+        "749378522"
       ]
     },
     "483": {
@@ -2818,14 +2818,14 @@
       ]
     },
     "633": {
-      "op": "bytec 5 // method \"emit_log(string,application,string)\"",
+      "op": "bytec 5 // method \"emit_log(string,uint64,string)\"",
       "defined_out": [
-        "Method(emit_log(string,application,string))",
+        "Method(emit_log(string,uint64,string))",
         "tmp%3#0"
       ],
       "stack_out": [
         "tmp%3#0",
-        "Method(emit_log(string,application,string))"
+        "Method(emit_log(string,uint64,string))"
       ]
     },
     "635": {
@@ -2869,12 +2869,12 @@
       "stack_out": []
     },
     "657": {
-      "op": "intc_2 // 747862402",
+      "op": "intc_2 // 749378522",
       "defined_out": [
-        "747862402"
+        "749378522"
       ],
       "stack_out": [
-        "747862402"
+        "749378522"
       ]
     },
     "658": {

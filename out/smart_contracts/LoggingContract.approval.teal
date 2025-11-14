@@ -7,7 +7,7 @@ main:
     // export class LoggingContract extends Contract {
     txn NumAppArgs
     bz main_after_if_else@8
-    pushbytess 0xda53fefe 0xd35f594a // method "createApplication(account)void", method "emit_log(string,uint64,string)void"
+    pushbytess 0xda53fefe 0x55032404 // method "createApplication(account)void", method "emit_log(string,string,string)void"
     txna ApplicationArgs 0
     match main_createApplication_route@3 main_emit_log_route@4
 
@@ -19,7 +19,7 @@ main_after_if_else@8:
 
 main_emit_log_route@4:
     // smart_contracts/Logging.algo.ts:45
-    // emit_log(eventName: string, agentID: uint64, status: string): void {
+    // emit_log(eventName: string, agentID: string, status: string): void {
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
@@ -30,11 +30,11 @@ main_emit_log_route@4:
     txna ApplicationArgs 1
     extract 2 0
     txna ApplicationArgs 2
-    btoi
+    extract 2 0
     txna ApplicationArgs 3
     extract 2 0
     // smart_contracts/Logging.algo.ts:45
-    // emit_log(eventName: string, agentID: uint64, status: string): void {
+    // emit_log(eventName: string, agentID: string, status: string): void {
     callsub emit_log
     pushint 1 // 1
     return
@@ -76,10 +76,10 @@ createApplication:
     retsub
 
 
-// smart_contracts/Logging.algo.ts::LoggingContract.emit_log(eventName: bytes, agentID: uint64, status: bytes) -> void:
+// smart_contracts/Logging.algo.ts::LoggingContract.emit_log(eventName: bytes, agentID: bytes, status: bytes) -> void:
 emit_log:
     // smart_contracts/Logging.algo.ts:45
-    // emit_log(eventName: string, agentID: uint64, status: string): void {
+    // emit_log(eventName: string, agentID: string, status: string): void {
     proto 3 0
     // smart_contracts/Logging.algo.ts:46
     // log("event:", eventName, "agentID:", agentID, "status:", status);
@@ -89,7 +89,6 @@ emit_log:
     pushbytes "agentID:"
     concat
     frame_dig -2
-    itob
     concat
     pushbytes "status:"
     concat

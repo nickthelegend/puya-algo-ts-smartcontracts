@@ -19,6 +19,7 @@ import { arc4 } from '@algorandfoundation/algorand-typescript';
 
 // Address and ARC4 types live under the arc4 submodule
 import { Address } from "@algorandfoundation/algorand-typescript/arc4";
+import { LoggingContract } from "./Logging.algo";
 
 // Task struct: use arc4 types for all fields (including executor -> Address)
 class Task extends arc4.Struct<{
@@ -97,13 +98,13 @@ export class SingleAgentContract extends Contract {
     // increment taskCount exactly once
     this.taskCount.value = (idx + (1 as uint64)) as uint64;
 
-    const appID =  Application(747862402);
+    const appID =  Application(749378522);
 
 const callTxn = itxn
       .applicationCall({
  appId:appID,
     fee: 0,
-    appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('pay'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    appArgs: [LoggingContract.prototype.emit_log, new arc4.Str('pay'), Global.currentApplicationId.id, new arc4.Str("success") ],
       })
       .submit()
   }
@@ -144,15 +145,21 @@ const callTxn = itxn
         fee: 0,
       })
       .submit();
-const appID =  Application(747862402);
+const appID =  Application(749378522);
 
+// const weeklyState = abiCall({
+//       method: LoggingContract.prototype.emit_log,
+//       appId: appID,
+//       args: [challengeId],
+//     }).returnValue
 const callTxn = itxn
       .applicationCall({
  appId:appID,
     fee: 0,
-        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('withdraw'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    appArgs: [LoggingContract.prototype.emit_log, "withdraw", Global.currentApplicationId.id, new arc4.Str("success") ],
       })
       .submit()
+  
 
       
   }
@@ -163,7 +170,9 @@ transferOwnership(newOwner: Account): void {
     this.ownerAddress.value = newOwner;
   }
 
-
+  test_log(): void{
+    
+  }
 
 
 

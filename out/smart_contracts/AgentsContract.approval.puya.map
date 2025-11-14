@@ -3,7 +3,7 @@
   "sources": [
     "/workspaces/puya-algo-ts-smartcontracts/smart_contracts/Agents.algo.ts"
   ],
-  "mappings": ";;;;;;;;;;;;;;;AA2BA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;AAAA;;AA+DA;;AAAA;AAAA;AAAA;;AAAA;AA/DA;;;AAAA;AA+DA;;;AAAA;;AA5CA;;AAAA;AAAA;AAAA;;AAAA;AAnBA;;;AAAA;;;AAAA;;;AAAA;;;AAmBA;;;AAAA;AAAA;;;;;;AAAA;AAAA;AAAA;AAAA;;AAPG;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAZH;;;AAAA;AAAA;;AAYG;;;AAAA;;AAAD;;;AAVE;;;;;;;;;;;;;;;;;;;AAaA;;AAAA;AAZA;AAawB;AAApB;;AAGR;;;AAUiB;AAOS;;;AAVT;;;;AAAA;;;;;;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAKH;;;;;;;;;;;;;;;;;;;;AAFG;;;AAAA;;;AAAA;AAUL;;AAKuC;;AAAxB;AACH;;AAAA;AALiB;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;;;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AArCrC;AAAA;AAAA;AAAA;AAqCJ;AAAA;AAAA;;AAAA;AAAA;AArCI;AAAA;AAAA;AAAA;AA4C8B;AAApB;AA5CV;AA4CU;AAAA;AAGE;AAI8G;;AAA5G;AAAA;;;;;;;;AAA4D;;;;;;;;;;;;;;;;;;;AAA0E;;;;;;;;;;;;;AAN7H;;;;;;;;AAEX;;;AAGP;;;AAHO;AAQF;AAKd;;;AACW;;AAAe;;AAAc;;AAAA;AAAjC;AAAP;AACW;;AAAA;AAAuB;AAAA;AAAA;;AAA9B;AAKuB;;AAnEvB;AAAA;AAAA;AAAA;AAoEqB;AAArB;AApEA;AAoEA;AAAA;",
+  "mappings": ";;;;;;;;;;;;;;;AA2BA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;AAAA;;AAgEA;;AAAA;AAAA;AAAA;;AAAA;AAhEA;;;AAAA;AAgEA;;;AAAA;;AA7CA;;AAAA;AAAA;AAAA;;AAAA;AAnBA;;;AAAA;;;AAAA;;;AAAA;;;AAmBA;;;AAAA;AAAA;;;;;;AAAA;AAAA;AAAA;AAAA;;AAPG;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAZH;;;AAAA;AAAA;;AAYG;;;AAAA;;AAAD;;;AAVE;;;;;;;;;;;;;;;;;;;AAaA;;AAAA;AAZA;AAawB;AAApB;;AAGR;;;AAUiB;AAOS;;;AAVT;;;;AAAA;;;;;;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAKH;;;;;;;;;;;;;;;;;;;;AAFG;;;AAAA;;;AAAA;AAUL;;AAKuC;;AAAxB;AACH;;AAAA;AALiB;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;;;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AArCrC;AAAA;AAAA;AAAA;AAqCJ;AAAA;AAAA;;AAAA;AAAA;AArCI;AAAA;AAAA;AAAA;AA4C8B;AAApB;AA5CV;AA4CU;AAAA;AAGE;AAI2E;;AAA7E;AAAA;;;;;;;;AAAuD;;;;;;;;;;;;;;;;;AAA+C;;;;;;;;;;;AANzF;;;;;;;;AAEX;;;AAGP;;;AAHO;AASF;AAKd;;;AACW;;AAAe;;AAAc;;AAAA;AAAjC;AAAP;AACW;;AAAA;AAAuB;AAAA;AAAA;;AAA9B;AAKuB;;AApEvB;AAAA;AAAA;AAAA;AAqEqB;AAArB;AArEA;AAqEA;AAAA;",
   "op_pc_offset": 0,
   "pc_events": {
     "1": {
@@ -510,12 +510,12 @@
       "stack_out": []
     },
     "167": {
-      "op": "pushbytes base64(CiAEAAGC883kAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBMbEUBQJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ)",
+      "op": "pushbytes base64(CiAEAAHat6rlAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBKV/GJIJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ)",
       "defined_out": [
-        "CiAEAAGC883kAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBMbEUBQJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ"
+        "CiAEAAHat6rlAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBKV/GJIJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ"
       ],
       "stack_out": [
-        "CiAEAAGC883kAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBMbEUBQJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ"
+        "CiAEAAHat6rlAgYmBwxvd25lckFkZHJlc3MJdGFza0NvdW50BG5hbWUMZml4ZWRQcmljaW5nAgAzBKV/GJIJAAdzdWNjZXNzMRtBADGCBgTAS3X0BNXTI0cEa2gDGATFRj7qBO4zkS8E87qicDYaAI4GAG4AYgBMACoAFAACIkMxGRREMRhENhoBF8AciAIMI0MxGRREMRhENhoBF8AcNhoCF4gBtCNDMRkURDEYRDYaARc2GgI2GgM2GgQ2GgU2GgY2GgeIASUjQzEZFEQxGEQxFiMJSTgQIxJEiACSI0MxGRREMRhEiABSI0MxGRREMRgURDYaAVcCADYaAlcCADYaAxeIAAIjQ4oDACgxAGcqi/1ngAdkZXRhaWxzi/5ni/+BwIQ9CytMZ4AJY3JlYXRlZEF0MgdnKSNnibEiKmVEsiaAAlJQsiWBArIjgYDQ28P0ArIigQOyECKyAbOADGFnZW50QXNzZXRJRLQ8Z4mKAQCL/zgHMgoSRIv/OAgiK2VEEkQiKWVESRYyBxaL/zgASwKAAQBQTwJQJwRQTFCAHgAcUGF5bWVudCBEb25lISEsIFRhc2sgQ3JlYXRlZFBLAbxIvyMIKUxnsTIIFicFshqABQADcGF5shqyGicGshokshglshAisgGziYoHACJJi/kWSb5EMgcWi/oiU0EAR4v9jACL+yJTQQAti/6MAYv8IlNBABqL/4sCSYsAUIsEUCcEUE8CUIsBUEsBvEi/iYsDVxMgQv/giwNJgRFZSwEVUowBQv/IiwOBQFOAAQAiTwJUjABC/6yKAgAxACIoZUQSRLGL/rIHi/+yCCOyECKyAbOxMggWJwWyGoAKAAh3aXRoZHJhd7IashonBrIaJLIYJbIQIrIBs4mKAQAxACIoZUQSRCiL/2eJ"
       ]
     },
     "854": {
@@ -1281,16 +1281,16 @@
       ]
     },
     "962": {
-      "op": "pushbytes 0xc6c45014 // method \"emit_log(string,application,string)\"",
+      "op": "pushbytes 0xa57f1892 // method \"emit_log(string,uint64,string)\"",
       "defined_out": [
-        "Method(emit_log(string,application,string))",
+        "Method(emit_log(string,uint64,string))",
         "helloApp#0",
         "tmp%3#0"
       ],
       "stack_out": [
         "helloApp#0",
         "tmp%3#0",
-        "Method(emit_log(string,application,string))"
+        "Method(emit_log(string,uint64,string))"
       ]
     },
     "968": {
@@ -1301,99 +1301,99 @@
       ]
     },
     "970": {
-      "op": "pushbytes 0x000b6372656174654167656e74",
+      "op": "pushbytes \"createAgent\"",
       "defined_out": [
-        "0x000b6372656174654167656e74",
+        "\"createAgent\"",
         "helloApp#0",
         "tmp%3#0"
       ],
       "stack_out": [
         "helloApp#0",
         "tmp%3#0",
-        "0x000b6372656174654167656e74"
+        "\"createAgent\""
       ]
     },
-    "985": {
+    "983": {
       "op": "itxn_field ApplicationArgs",
       "stack_out": [
         "helloApp#0",
         "tmp%3#0"
       ]
     },
+    "985": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "helloApp#0"
+      ]
+    },
     "987": {
+      "op": "pushbytes \"success\"",
+      "defined_out": [
+        "\"success\"",
+        "helloApp#0"
+      ],
+      "stack_out": [
+        "helloApp#0",
+        "\"success\""
+      ]
+    },
+    "996": {
       "op": "itxn_field ApplicationArgs",
       "stack_out": [
         "helloApp#0"
       ]
     },
-    "989": {
-      "op": "pushbytes 0x000773756363657373",
+    "998": {
+      "op": "pushint 749378522 // 749378522",
       "defined_out": [
-        "0x000773756363657373",
+        "749378522",
         "helloApp#0"
       ],
       "stack_out": [
         "helloApp#0",
-        "0x000773756363657373"
+        "749378522"
       ]
     },
-    "1000": {
-      "op": "itxn_field ApplicationArgs",
-      "stack_out": [
-        "helloApp#0"
-      ]
-    },
-    "1002": {
-      "op": "pushint 747862402 // 747862402",
-      "defined_out": [
-        "747862402",
-        "helloApp#0"
-      ],
-      "stack_out": [
-        "helloApp#0",
-        "747862402"
-      ]
-    },
-    "1008": {
+    "1004": {
       "op": "itxn_field ApplicationID",
       "stack_out": [
         "helloApp#0"
       ]
     },
-    "1010": {
+    "1006": {
       "op": "intc_2 // 6",
       "stack_out": [
         "helloApp#0",
         "6"
       ]
     },
-    "1011": {
+    "1007": {
       "op": "itxn_field TypeEnum",
       "stack_out": [
         "helloApp#0"
       ]
     },
-    "1013": {
+    "1009": {
       "op": "intc_0 // 0",
       "stack_out": [
         "helloApp#0",
         "0"
       ]
     },
-    "1014": {
+    "1010": {
       "op": "itxn_field Fee",
       "stack_out": [
         "helloApp#0"
       ]
     },
-    "1016": {
+    "1012": {
       "op": "itxn_submit"
     },
-    "1017": {
+    "1013": {
       "retsub": true,
       "op": "retsub"
     },
-    "1018": {
+    "1014": {
       "subroutine": "smart_contracts/Agents.algo.ts::AgentsContract.deleteAgent",
       "params": {
         "agentId#0": "uint64"
@@ -1402,7 +1402,7 @@
       "stack_in": [],
       "op": "proto 1 0"
     },
-    "1021": {
+    "1017": {
       "op": "txn Sender",
       "defined_out": [
         "tmp%0#0"
@@ -1411,7 +1411,7 @@
         "tmp%0#0"
       ]
     },
-    "1023": {
+    "1019": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%0#0",
@@ -1422,7 +1422,7 @@
         "tmp%1#0"
       ]
     },
-    "1025": {
+    "1021": {
       "op": "app_params_get AppCreator",
       "defined_out": [
         "check%0#0",
@@ -1435,7 +1435,7 @@
         "check%0#0"
       ]
     },
-    "1027": {
+    "1023": {
       "error": "application exists",
       "op": "assert // application exists",
       "stack_out": [
@@ -1443,7 +1443,7 @@
         "value%0#0"
       ]
     },
-    "1028": {
+    "1024": {
       "op": "==",
       "defined_out": [
         "tmp%2#0"
@@ -1452,12 +1452,12 @@
         "tmp%2#0"
       ]
     },
-    "1029": {
+    "1025": {
       "error": "Only the maintainer can delete agents",
       "op": "assert // Only the maintainer can delete agents",
       "stack_out": []
     },
-    "1030": {
+    "1026": {
       "op": "frame_dig -1",
       "defined_out": [
         "agentId#0 (copy)"
@@ -1466,7 +1466,7 @@
         "agentId#0 (copy)"
       ]
     },
-    "1032": {
+    "1028": {
       "op": "itob",
       "defined_out": [
         "tmp%3#0"
@@ -1475,7 +1475,7 @@
         "tmp%3#0"
       ]
     },
-    "1033": {
+    "1029": {
       "op": "dup",
       "defined_out": [
         "tmp%3#0",
@@ -1486,7 +1486,7 @@
         "tmp%3#0 (copy)"
       ]
     },
-    "1034": {
+    "1030": {
       "op": "box_len",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1499,21 +1499,21 @@
         "maybe_exists%0#0"
       ]
     },
-    "1035": {
+    "1031": {
       "op": "bury 1",
       "stack_out": [
         "tmp%3#0",
         "maybe_exists%0#0"
       ]
     },
-    "1037": {
+    "1033": {
       "error": "Agent does not exist",
       "op": "assert // Agent does not exist",
       "stack_out": [
         "tmp%3#0"
       ]
     },
-    "1038": {
+    "1034": {
       "op": "box_del",
       "defined_out": [
         "{box_del}"
@@ -1522,11 +1522,11 @@
         "{box_del}"
       ]
     },
-    "1039": {
+    "1035": {
       "op": "pop",
       "stack_out": []
     },
-    "1040": {
+    "1036": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0"
@@ -1535,7 +1535,7 @@
         "0"
       ]
     },
-    "1041": {
+    "1037": {
       "op": "bytec_0 // \"number\"",
       "defined_out": [
         "\"number\"",
@@ -1546,7 +1546,7 @@
         "\"number\""
       ]
     },
-    "1042": {
+    "1038": {
       "op": "app_global_get_ex",
       "defined_out": [
         "maybe_exists%1#0",
@@ -1557,14 +1557,14 @@
         "maybe_exists%1#0"
       ]
     },
-    "1043": {
+    "1039": {
       "error": "check GlobalState exists",
       "op": "assert // check GlobalState exists",
       "stack_out": [
         "maybe_value%1#0"
       ]
     },
-    "1044": {
+    "1040": {
       "op": "intc_1 // 1",
       "defined_out": [
         "1",
@@ -1575,7 +1575,7 @@
         "1"
       ]
     },
-    "1045": {
+    "1041": {
       "op": "-",
       "defined_out": [
         "new_state_value%0#0"
@@ -1584,25 +1584,25 @@
         "new_state_value%0#0"
       ]
     },
-    "1046": {
+    "1042": {
       "op": "bytec_0 // \"number\"",
       "stack_out": [
         "new_state_value%0#0",
         "\"number\""
       ]
     },
-    "1047": {
+    "1043": {
       "op": "swap",
       "stack_out": [
         "\"number\"",
         "new_state_value%0#0"
       ]
     },
-    "1048": {
+    "1044": {
       "op": "app_global_put",
       "stack_out": []
     },
-    "1049": {
+    "1045": {
       "retsub": true,
       "op": "retsub"
     }

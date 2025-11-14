@@ -73,15 +73,16 @@ this.agentMap(this.number.value).value = new Agent({
                  appID: new arc4.UintN64(helloApp.id) ,creatorName: agentImage
               });
               this.number.value +=1;
-const appID =  Application(747862402);
+const appID =  Application(749378522);
 
 const callTxn = itxn
       .applicationCall({
  appId:appID,
     fee: 0,
-        appArgs: [arc4.methodSelector('emit_log(string,application,string)'), new arc4.Str('createAgent'), Application(Global.currentApplicationId.id), new arc4.Str("success") ],
+    appArgs: [arc4.methodSelector('emit_log(string,uint64,string)'), "createAgent", Global.currentApplicationId.id, "success" ],
       })
       .submit()
+  
   
               return helloApp.id
             
